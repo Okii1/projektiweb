@@ -503,6 +503,7 @@ margin-bottom: 10px;
     width: 40%;
 }
 
+
 #newsletter button{
     background-color: #147a78;
     color: white;
@@ -1138,19 +1139,14 @@ color: white;
 
 /* Signup */
 .signup{
-    background: rgb(244, 203, 248);
+    background: rgb(169, 210, 190);
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
 }
-.header{
-    background-color: #b25dda;
-    padding: 30px 0;
-}
-
 .container{
-    background-color: #fff;
+    background-color: rgb(241, 233, 233);
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0,0,0,0.048), 0 12.8px 10.5px rgba(0,0,0,0.58) ;
@@ -1158,9 +1154,10 @@ color: white;
     max-width: 100%;
 }
 .header{
-    background-color: #b25dda;
+    background-color: #159b83;
     padding: 30px 0;
 }
+
 .form{
     padding: 40px;
 }
@@ -1182,6 +1179,10 @@ color: white;
     border-radius: 5px;
     padding: 12px;
     display: block;
+}
+.form-control button{
+    list-style-type: none;
+    list-style: none;
 }
 
 .form-control input:focus{
@@ -1226,7 +1227,7 @@ color: white;
 }
 
 .form .btn{
-    background: #b25dda;
+    background: #2cad86;
     border-radius: 5px;
     border: none;
     outline: none;
@@ -1241,5 +1242,5 @@ color: white;
 }
 
 .form .btn:hover{
-    background: #c59cd8;
+    background: #9cd8b4;
 }

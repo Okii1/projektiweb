@@ -58,6 +58,7 @@ const isEmail = (emailVal) =>{
     return true;
 }
 
+//Validimi
 function Validate(){
     const usernameVal = username.value.trim();
     const lastnameVal = lastname.value.trim();
