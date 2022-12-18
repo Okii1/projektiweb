@@ -36,7 +36,7 @@ p{
 }
 
 button.normal{
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
     padding: 15px 30px;
     color: black;  
@@ -508,7 +508,7 @@ margin-bottom: 10px;
     background-color: #147a78;
     color: white;
     white-space: nowrap;
-    margin-top: -10cm;
+    border-bottom: 10px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
