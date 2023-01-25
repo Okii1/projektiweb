@@ -77,7 +77,7 @@ if(isset($_POST['submit'])){
       <label>Password</label>
       <input type="password" name="password" required placeholder="enter your password">
       <label> </label>
-      <input type="submit" name="submit" value="login now" class="form-btn">
+      <input type="submit" name="submit" value="login now" class="btnn">
    </form>
    </div>
    <p>don't have an account? <a href="SignUp.php"><button class="normal">Sign Up</button></a></p>
