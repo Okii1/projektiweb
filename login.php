@@ -1,4 +1,44 @@
-<!DOCTYPE html>
+<?php
+
+@include 'config.php';
+
+session_start();
+
+if(isset($_POST['submit'])){
+
+   $name = mysqli_real_escape_string($conn, $_POST['name']);
+   $email = mysqli_real_escape_string($conn, $_POST['email']);
+   $pass = md5($_POST['password']);
+   $cpass = md5($_POST['cpassword']);
+   $user_type = $_POST['user_type'];
+
+   $select = " SELECT * FROM user_form WHERE email = '$email' && password = '$pass' ";
+
+   $result = mysqli_query($conn, $select);
+
+   if(mysqli_num_rows($result) > 0){
+
+      $row = mysqli_fetch_array($result);
+
+      if($row['user_type'] == 'admin'){
+
+         $_SESSION['admin_name'] = $row['name'];
+         header('location:admin_page.php');
+
+      }elseif($row['user_type'] == 'user'){
+
+         $_SESSION['user_name'] = $row['name'];
+         header('location:user_page.php');
+
+      }
+     
+   }else{
+      $error[] = 'incorrect email or password!';
+   }
+   
+}
+?>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,6 +50,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>  
+
+   
+
+
     <div class="signup">
         <div class="container">
             <div class="header">
@@ -17,33 +61,28 @@
             </div>
             <form action="" class="form" id="form">
                 
-    
+               
                 <div class="form-control">
-                    <label>Email</label>
-                    <input type="text" name="" id="email" placeholder="Enter Your Email" autocomplete="off">
-                    <i class="fa fa-check-circle"></i>
-                    <i class="fa fa-exclamation-circle"></i>
-                    <small>Error Message</small>
-                </div>
-    
-                <div class="form-control">
-                    <label>Password</label>
-                    <input type="password" name="" id="password" placeholder="Enter Your Password" autocomplete="off">
-                    <i class="fa fa-check-circle"></i>
-                    <i class="fa fa-exclamation-circle"></i>
-                    <small>Error Message</small>
-                </div>
-    
-                
-                <input type="submit" value="Login" class="btn">
-            </form> 
-            <p>Not have a account?<a href="SignUp.html"><button class="normal">Sign Up</button> </a></p>
-       </div>
-    </div>
+                <form action="" method="post">
+      
+      <?php
+      if(isset($error)){
+         foreach($error as $error){
+            echo '<span class="error-msg">'.$error.'</span>';
+         };
+      };
+      ?>
+      <label> Email</label>
+      <input type="email" name="email" required placeholder="enter your email">
+      <label>Password</label>
+      <input type="password" name="password" required placeholder="enter your password">
+      <label> </label>
+      <input type="submit" name="submit" value="login now" class="form-btn">
+   </form>
+   </div>
+   <p>don't have an account? <a href="SignUp.php"><button class="normal">Sign Up</button></a></p>
 
-
-
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     
     <script src="scriptLogin.js"></script>
 </body>

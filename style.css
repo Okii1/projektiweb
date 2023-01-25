@@ -1305,7 +1305,7 @@ color: white;
     padding: 12px;
     display: block;
 }
-.form-control button{
+.form-control {
     list-style-type: none;
     list-style: none;
 }
@@ -1361,7 +1361,7 @@ color: white;
     padding: 15px 0;
     margin-top: 15px;
     width: 100%;
-    color: #fff;
+    color: rgb(255, 255, 255);
     font-weight: bold;
     text-transform: uppercase;
 }

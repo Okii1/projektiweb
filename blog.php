@@ -113,7 +113,7 @@
         </div>
         <div class="form">
             <input type="text" placeholder="Your email address">
-            <a href="login.html"> <button class="normal">LogIn</button> </a>
+            <a href="login.php"> <button class="normal">LogIn</button> </a>
         </div>
     </section>
 

@@ -136,7 +136,7 @@
         </div>
         <div class="form">
             <input type="text" name="" placeholder="Your email address" id="">
-            <a href="login.html"> <button class="normal">LogIn</button> </a>
+            <a href="login.php"> <button class="normal">LogIn</button> </a>
         </div>
     </section>
 
