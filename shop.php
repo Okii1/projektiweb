@@ -31,13 +31,37 @@ echo '</div>';
 echo '';
 echo '</section>';
 ?>
-
     <section id="page-header">
         <h2>Super offers</h2>
         <p>Save more with coupons & up to 50% off!</p>
     </section>    
+<?php
+ $connect = mysqli_connect("localhost","root","","user_db");
+ $query = "SELECT * FROM card_item";
+ $result = mysqli_query($connect,$query);
+?><section id="product1" class="section-p1"> 
+<div class="pro-container"><?php
+ while($row = mysqli_fetch_array($result)){?>
 
-    <section id="product1" class="section-p1"> 
+            <div class="pro" onclick="window.location.href='sproduct.php';">
+                <img src="<?=$row['image'] ?>" alt="">
+                <div class="des">
+                    <span><?=$row['name'] ?></span>
+                    <h5><?=$row['model'] ?></h5>
+                    <h4><?=$row['price'] ?>€</h4>
+                </div>
+                <a href="#"> <i class="fa fa-shopping-cart cart"></i></a>
+        
+            </div>
+            <?php }
+ ?>
+ 
+            </div>
+            
+ </section>
+
+
+  <!--  <section id="product1" class="section-p1"> 
         <div class="pro-container">
             <div class="pro" onclick="window.location.href='sproduct.html';">
                 <img src="img//products/f1.jpg" alt="">
@@ -111,8 +135,8 @@ echo '</section>';
                 </div>
                 <a href="#"> <i class="fa fa-shopping-cart cart"></i></a>
             </div>
-        </section>
-            
+        </section> 
+-->
          <!-- Slider -->
 <div class="slider-container">
     <div id="slider">
@@ -259,16 +283,7 @@ echo '</section>';
         <a href="#"><i class="fa fa-angle-double-right"></i></a>
     </section>
 
-<section id="newsletter" class="section-p1 section-m1">
-    <div class="newstext">
-        <h4>Sing Up</h4>
-        <p>Get E-mail updates our latest shop and <span>special offers.</span></p>
-    </div>
-    <div class="form" >
-        <input type="text" placeholder="Your email address">
-        <a href="login.php"> <button class="normal">LogIn</button> </a>
-    </div>
-</section>
+
 
 <?php include 'footer.php';?>
     <script src="script.js"></script>

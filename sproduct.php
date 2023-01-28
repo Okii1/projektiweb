@@ -117,15 +117,7 @@
         
     </section>
 
-<section id="newsletter" class="section-p1 section-m1">
-    <div class="newstext">
-        <li><a href="SignUp.html"> <button class="normal">Sign Up</button> </a></li>
-        <p>Get E-mail updates our latest shop and <span>special offers.</span></p>
-    </div>
-    <div class="form" >
-        <input type="text" placeholder="Your email address">
-        <a href="login.html"> <button class="normal">LogIn</button> </a>
-    </div>
+
 
     <?php include 'footer.php';?>
 

@@ -1,3 +1,24 @@
+
+<?php
+
+@include 'config.php';
+
+if(isset($_POST['submit'])){
+
+   $name = mysqli_real_escape_string($conn, $_POST['name']);
+   $subject = mysqli_real_escape_string($conn, $_POST['subject']);
+   $email = mysqli_real_escape_string($conn, $_POST['email']);
+   $mesage = md5($_POST['messsage']);
+
+   $select = " SELECT * FROM contact_form ";
+
+   $result = mysqli_query($conn, $select);
+
+       $insert = "INSERT INTO contact_form(name, subject, email, message) VALUES('$name','$subject','$email','$message')";
+         mysqli_query($conn, $insert);
+         header('location:contact.php');
+   };
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -72,47 +93,30 @@
     
 
     <section id="form-details">
-        <form action="" id="form">
+    <form action="" method="post">
             <span>LEAVE A MESSAGE</span>
             <h2>We love to hear from you </h2>
             
 
             <div class="form-control">
-              
-                <input type="text" name="" id="name" placeholder="Your Name">             
-                <i class="fa fa-check-circle"></i>
-                <i class="fa fa-exclamation-circle"></i>
-                <small>Error Message</small>
-            </div>
-
-            <div class="form-control">
-               
-                <input type="text" name="" id="email" placeholder="E-mail">
-                <i class="fa fa-check-circle"></i>
-                <i class="fa fa-exclamation-circle"></i>
-                <small>Error Message</small>
-            </div>
-
-            <div class="form-control">
-               
-                <input type="text" name="" id="subject" placeholder="Subject">
-                <i class="fa fa-check-circle"></i>
-                <i class="fa fa-exclamation-circle"></i>
-                <small>Error Message</small>
-            </div>
-
-            <div class="form-control">
-                
-                <textarea name="" id="message" cols="24" rows="5" placeholder="Your Message"></textarea>             
-                <i class="fa fa-check-circle"></i>
-                <i class="fa fa-exclamation-circle"></i>
-             <br>
-                <small>Error Message</small>
-            </div>
-            <br>
-            <input type="submit" class="btn" value="Submit">
-
-        </form>
+            <?php
+   if(isset($error)){
+      foreach($error as $error){
+         echo '<span class="error-msg">'.$error.'</span>';
+      };
+   };
+   ?>
+    <label>Name</label>
+   <input type="text" name="name" required placeholder="enter your name">
+   <label>Email</label>
+   <input type="text" name="email" required placeholder="enter your email">
+   <label>Subject</label>
+   <input type="text" name="subject" required placeholder="enter your subject">
+   <label>Your Message</label>
+   <input type="text" name="message" required placeholder="enter your message">
+   
+   <input type="submit" name="submit" value="Submit now" class="btn">
+ </form>
         <div class="people">
             <div>
                 <img src="img/people/1.png" alt="">
@@ -128,18 +132,6 @@
             </div>
         </div>
     </section>
-
-    <section id="newsletter" class="section-m1 section-p1">
-        <div class="newstext">
-            <h4>Sign Up For Newsletters </h4>
-            <p>Get E-mail updates about our latest shop and <span>special offers.</span></p>
-        </div>
-        <div class="form">
-            <input type="text" name="" placeholder="Your email address" id="">
-            <a href="login.php"> <button class="normal">LogIn</button> </a>
-        </div>
-    </section>
-
     <?php include 'footer.php';?>
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

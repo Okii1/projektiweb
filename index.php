@@ -9,10 +9,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+<?php
+
+@include 'config.php';
+
+session_start();
+
+if(!isset($_SESSION['user_name'])){
+   header('location:login.php');
+}
+
+?>
     <section id="header">
         <a href="#"><img src="img/logo.png" class="logos" alt=""></a>
         <div>
+       
             <ul id="navbar">
+            <h4>welcome <span><?php echo $_SESSION['user_name'] ?></span></h4>
                 <li><a class="active" href="index.php">Home</a></li>
                 <li><a href="shop.php">Shop</a></li>
                 <li><a href="blog.php">Blog</a></li>
@@ -20,6 +33,7 @@
                 <li><a href="contact.php">Contact</a></li>
                 <li id="lg-bag"><a href="cart.php"><i class="fa fa-shopping-bag"></i></a></li>
                 <a href="#" id="close"><i class="fa fa-times"></i></a>
+                <li><a href="logout.php">LogOut</a></li>
             </ul>
         </div>
         <div id="mobile">
@@ -274,16 +288,6 @@ echo '';
         <h3>New Trendy</h3>
     </div>
 </section>
-
-<section id="newsletter" class="section-p1 section-m1">
-    <div class="newstext">
-        <h4>Sing Up</h4>
-        <p>Get E-mail updates our latest shop and <span>special offers.</span></p>
-    </div>
-    <div class="form" >
-        <input class="text" type="text" placeholder="Your email address">
-        <a href="login.php"> <button class="normal">LogIn</button> </a>
-    </div> </section>
 
     <?php include 'footer.php';?>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

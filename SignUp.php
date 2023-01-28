@@ -79,7 +79,7 @@ if(isset($_POST['submit'])){
       <option value="user">user</option>
       <option value="admin">admin</option>
    </select>
-   <input type="submit" name="submit" value="register now" class="btn">
+   <input type="submit" name="submit" value="Submit" class="btn">
    
 </form>
 <p>You have a account?<a href="login.php"><button class="normal">login</button> </a></p> 
