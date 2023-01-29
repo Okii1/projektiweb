@@ -33,7 +33,7 @@ if(!isset($_SESSION['user_name'])){
                 <li><a href="contact.php">Contact</a></li>
                 <li id="lg-bag"><a href="cart.php"><i class="fa fa-shopping-bag"></i></a></li>
                 <a href="#" id="close"><i class="fa fa-times"></i></a>
-                <li><a href="logout.php">LogOut</a></li>
+                <li><a href="logout.php" class="fa fa-sign-out"></a></li>
             </ul>
         </div>
         <div id="mobile">
