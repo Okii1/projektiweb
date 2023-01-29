@@ -8,7 +8,7 @@ if(isset($_POST['submit'])){
    $name = mysqli_real_escape_string($conn, $_POST['name']);
    $subject = mysqli_real_escape_string($conn, $_POST['subject']);
    $email = mysqli_real_escape_string($conn, $_POST['email']);
-   $mesage = md5($_POST['messsage']);
+   $message = mysqli_real_escape_string($conn, $_POST['message']);
 
    $select = " SELECT * FROM contact_form ";
 
