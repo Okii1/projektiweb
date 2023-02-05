@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <title>Dashboard</title>
+    <title>User</title>
     <link rel="stylesheet" href="stylee.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -25,9 +25,9 @@
                 <li>
                     <a href="">
                         <span class="ti-home"></span>
-                           <span class="fa fa-dashboard">Dashboard </span> <br>
+                        <span>  <a href=Dashboard.php class="fa fa-dashboard">Dashboard </a></span>
                         <li> <span><a href="user.php" class="fa fa-user">User</a></span> </li>
-                        <li> <span><a href="product.php" class="fa fa-pencil-square">Product</a></span> </li>
+                        <li> <span><a href="product.php" class="fa fa-pencil-square">Product</a></span> </li>       
                         <li> <span><a href="logout.php" class="fa fa-sign-out">LogOut</a> </span> </li>
                     </a>
                 </li>
@@ -56,28 +56,30 @@
             <section class="recent">
                 <div class="activity-grid">
                     <div class="activity-card">
-                        <h3>Contact</h3>
+                        <h3>User</h3>
                         
                         <div class="table-responsive">
                         <table>
                                 <thead>
                                     <tr>
+                                        <th>ID</th>
                                         <th>Name</th>
+                                        <th>Lastname</th>
                                         <th>Email</th>
-                                        <th>Subject</th>
-                                        <th>Message</th>
+                                        <th>User_type</th>
                                     </tr>
                                     <tbody>  <?php
                          $connect = mysqli_connect("localhost","root","","user_db");
-                         $query = "SELECT * FROM contact_form";
+                         $query = "SELECT * FROM user_form";
                          $result = mysqli_query($connect,$query);
                          while($row = mysqli_fetch_array($result)){?>
                                     
                                     <tr>
-                         <td> <?=$row['name'] ?>  </td> 
+                         <td> <?=$row['id'] ?>   </td> 
+                         <td> <?=$row['name'] ?>   </td> 
+                         <td> <?=$row['lastname'] ?>  </td> 
                          <td><?=$row['email'] ?>   </td>
-                         <td><?=$row['subject'] ?>    </td>
-                         <td><?=$row['message'] ?>     </td>  
+                         <td><?=$row['user_type'] ?>   </td>  
                          </tr>
                
            <?php }
