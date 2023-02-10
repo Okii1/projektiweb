@@ -65,6 +65,23 @@
     </section>
 
     <section id="feature" class="section-p1">
+    <?php
+ $connect = mysqli_connect("localhost","root","","user_db");
+ $query = "SELECT * FROM about_us";
+ $result = mysqli_query($connect,$query);
+?><section id="product1" class="section-p1"> 
+<div class="pro-container"><?php
+ while($row = mysqli_fetch_array($result)){?>
+
+            <div class="fe-box" >
+                <img src="<?=$row['image'] ?>" alt="">
+                <div class="des">
+                    <h6><?=$row['name'] ?></h6>
+                </div>
+            </div>
+            <?php }
+ ?>
+        <!--
         <div class="fe-box">
             <img src="img/features/f1.png" alt="">
             <h6>Free Shipping</h6>
@@ -88,7 +105,7 @@
         <div class="fe-box">
             <img src="img/features/f6.png" alt="">
             <h6>F24/7 Support</h6>
-        </div>
+        </div> -->
     </section>
 
 
