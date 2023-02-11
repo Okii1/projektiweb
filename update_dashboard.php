@@ -44,7 +44,7 @@
         <header>
             <div class="search-wrapper">
                 <span class="ti-search"></span>
-                <h3> Update Products</h3>
+                <h3> Update Contact Dashboard</h3>
             </div>
             
             <div class="social-icons">
@@ -66,23 +66,23 @@
 include "config.php";
 
     if (isset($_POST['update'])) {
-        $product_id = $_GET['id']; 
+        $dashboard_id = $_GET['id']; 
 
         $name = $_POST['name'];
 
-        $model = $_POST['model'];
+        $email = $_POST['email'];
 
-        $image = $_POST['image'];
+        $subject = $_POST['subject'];
 
-        $price = $_POST['price'];
+        $message = $_POST['message'];
 
-        $sql = "UPDATE `card_item` SET `name`='$name',`model`='$model',`image`='$image',`price`='$price' WHERE `id`='$product_id'"; 
+        $sql = "UPDATE `contact_form` SET `name`='$name',`email`='$email',`subject`='$subject',`message`='$message' WHERE `id`='$dashboard_id'"; 
 
         $result = $conn->query($sql); 
 
         if ($result == TRUE) {
 
-            header('location:product.php');
+            header('location:Dashboard.php');
 
         }else{
 
@@ -94,9 +94,9 @@ include "config.php";
 
 if (isset($_GET['id'])) {
 
-    $product_id = $_GET['id']; 
+    $dashboard_id = $_GET['id']; 
 
-    $sql = "SELECT * FROM `card_item` WHERE `id`='$product_id'";
+    $sql = "SELECT * FROM `contact_form` WHERE `id`='$dashboard_id'";
 
     $result = $conn->query($sql); 
 
@@ -106,11 +106,11 @@ if (isset($_GET['id'])) {
 
             $name = $row['name'];
 
-            $model = $row['model'];
+            $email = $row['email'];
 
-            $image = $row['image'];
+            $subject = $row['subject'];
 
-            $price = $row['price'];
+            $message = $row['message'];
 
             $id = $row['id'];
 
@@ -127,14 +127,16 @@ if (isset($_GET['id'])) {
        
         <input type="text" name="name" value="<?php echo $name; ?>"><br>
 
-        <input type="hidden" name="product_id" value="<?php echo $id; ?>">
+        <input type="hidden" name="dashboard_id" value="<?php echo $id; ?>">
         
-        <label>Model : </label><br>
-            <input type="text" name="model" value="<?php echo $model; ?>"><br>
-            <label>Image : </label><br>
-            <input type="file" id="myFile" name="image" value="<?php echo $image; ?>"><br>
-            <label>Price : </label><br>
-            <input type="text" name="price" value="<?php echo $price; ?>"><br>
+        <label>Email : </label><br>
+            <input type="text" name="email" value="<?php echo $email; ?>"><br>
+            <label>Subject : </label><br>
+            <input type="text" name="subject" value="<?php echo $subject; ?>"><br>
+            <label>Message : </label><br>
+            <input type="text" name="message" value="<?php echo $message; ?>"><br>
+            
+                    
             <input type="submit" value="Update" name="update">
 
 
@@ -157,4 +159,5 @@ if (isset($_GET['id'])) {
 
 </body>
 </html>
+
 

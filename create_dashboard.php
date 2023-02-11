@@ -28,8 +28,8 @@
                         <span>  <a href=Dashboard.php class="fa fa-dashboard">Dashboard </a></span>
                         <li> <span><a href="user.php" class="fa fa-user">User</a></span> </li>
                         <li> <span><a href="product.php" class="fa fa-pencil-square">Product</a></span> </li>  
-                        <li> <span><a href="searchUsers.php" class="fa fa-search-plus">Search Users</a></span> </li>     
-                        <li> <span><a href="search.php" class="fa fa-search-minus">Search Products</a></span> </li>  
+                        <li> <span><a href="searchUsers.php" class="fa fa-search-plus">Search Users</a></span> </li>      
+                        <li> <span><a href="search.php" class="fa fa-search-minus">Search Products</a></span> </li>      
                         <li> <span><a href="logout.php" class="fa fa-sign-out">LogOut</a> </span> </li>
                     </a>
                 </li>
@@ -43,8 +43,9 @@
         
         <header>
             <div class="search-wrapper">
+                <h3>Create Form For Contact Dashboard<h3>
                 <span class="ti-search"></span>
-                <h3> Update Products</h3>
+                
             </div>
             
             <div class="social-icons">
@@ -65,96 +66,59 @@
 
 include "config.php";
 
-    if (isset($_POST['update'])) {
-        $product_id = $_GET['id']; 
-
+    if (isset($_POST['submit'])) {
+       
         $name = $_POST['name'];
 
-        $model = $_POST['model'];
+        $subject = $_POST['subject'];
 
-        $image = $_POST['image'];
+        $email = $_POST['email'];
 
-        $price = $_POST['price'];
+        $message = $_POST['message'];
 
-        $sql = "UPDATE `card_item` SET `name`='$name',`model`='$model',`image`='$image',`price`='$price' WHERE `id`='$product_id'"; 
+        $sql = "INSERT INTO `contact_form`(`name`, `subject`, `email`, `message`) VALUES ('$name','$subject','$email','$message')";
 
-        $result = $conn->query($sql); 
+    $result = $conn->query($sql);
 
-        if ($result == TRUE) {
+    if ($result == TRUE) {
 
-            header('location:product.php');
+        header('location:Dashboard.php');
 
-        }else{
+    }else{
 
-            echo "Error:" . $sql . "<br>" . $conn->error;
-
-        }
+      echo "Error:". $sql . "<br>". $conn->error;
 
     } 
 
-if (isset($_GET['id'])) {
+    $conn->close(); 
 
-    $product_id = $_GET['id']; 
+  }
 
-    $sql = "SELECT * FROM `card_item` WHERE `id`='$product_id'";
-
-    $result = $conn->query($sql); 
-
-    if ($result->num_rows > 0) {        
-
-        while ($row = $result->fetch_assoc()) {
-
-            $name = $row['name'];
-
-            $model = $row['model'];
-
-            $image = $row['image'];
-
-            $price = $row['price'];
-
-            $id = $row['id'];
-
-        } 
-
-    ?>
+?>
          <div class="form-control">
 
+         <h2></h2>
+
+          <form action="" method="post">
+
+            <label >Name : </label><br>
+            <input type="text" name="name" required placeholder="Enter the name..."><br>
+            <label>Email : </label><br>
+            <input type="text" name="email" required placeholder="Enter the email..."><br>
+            <label>Subject : </label><br>
+            <input type="text" name="subject" required placeholder="Enter the subject..."><br>
+            <label>Message : </label><br>
+            <input type="text" name="message" required placeholder="Enter the message..."><br>
+            
+                  
+            <input type="submit" name="submit" value="submit">
+
         
 
-        <form action="" method="post">
-
-        <label >Name : </label><br>
-       
-        <input type="text" name="name" value="<?php echo $name; ?>"><br>
-
-        <input type="hidden" name="product_id" value="<?php echo $id; ?>">
-        
-        <label>Model : </label><br>
-            <input type="text" name="model" value="<?php echo $model; ?>"><br>
-            <label>Image : </label><br>
-            <input type="file" id="myFile" name="image" value="<?php echo $image; ?>"><br>
-            <label>Price : </label><br>
-            <input type="text" name="price" value="<?php echo $price; ?>"><br>
-            <input type="submit" value="Update" name="update">
-
-
-
-            </form> 
+        </form> 
         </div>
-        
 
-    <?php
+    </body>
 
-} else{ 
-
-    header('Location: dashboard.php');
-
-} 
-
-}
-
-?> 
-
-</body>
-</html>
+</html> 
 

@@ -53,15 +53,18 @@
                 <div class="activity-grid">
                     <div class="activity-card">
                         
-                        
+                    <a style="float:right;margin-top:15px;color:black;" href="create_dashboard.php"><b> | Create  </b></a>
                         <div class="table-responsive">
                         <table>
                                 <thead>
                                     <tr>
+                                        <th>ID</th>
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Subject</th>
                                         <th>Message</th>
+                                        <th>Actions</th>
+                            
                                     </tr>
                                     <tbody>  <?php
                          $connect = mysqli_connect("localhost","root","","user_db");
@@ -70,10 +73,12 @@
                          while($row = mysqli_fetch_array($result)){?>
                                     
                                     <tr>
+                        <td> <?=$row['id'] ?>  </td>                
                          <td> <?=$row['name'] ?>  </td> 
                          <td><?=$row['email'] ?>   </td>
                          <td><?=$row['subject'] ?>    </td>
                          <td><?=$row['message'] ?>     </td>  
+                         <td><a style="color:black;" href="update_dashboard.php?id=<?php echo $row['id']; ?>">Edit</a> | <a style="color:black;" href="delete_dashboard.php?id=<?php echo $row['id']; ?>">Delete</a></td>
                          </tr>
                
            <?php }

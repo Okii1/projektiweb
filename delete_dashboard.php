@@ -25,10 +25,10 @@
                 <li>
                     <a href="">
                         <span class="ti-home"></span>
-                        <span>  <a href=Dashboard.php class="fa fa-dashboard">Dashboard </a></span>
+                        <li> <span class="fa fa-dashboard">Dashboard </span> </li>
                         <li> <span><a href="user.php" class="fa fa-user">User</a></span> </li>
                         <li> <span><a href="product.php" class="fa fa-pencil-square">Product</a></span> </li>  
-                        <li> <span><a href="searchUsers.php" class="fa fa-search-plus">Search Users</a></span> </li>     
+                        <li> <span><a href="searchUsers.php" class="fa fa-search-plus">Search Users</a></span> </li>        
                         <li> <span><a href="search.php" class="fa fa-search-minus">Search Products</a></span> </li>  
                         <li> <span><a href="logout.php" class="fa fa-sign-out">LogOut</a> </span> </li>
                     </a>
@@ -44,7 +44,7 @@
         <header>
             <div class="search-wrapper">
                 <span class="ti-search"></span>
-                <h3> Update Products</h3>
+                <input type="search" placeholder="Search">
             </div>
             
             <div class="social-icons">
@@ -63,98 +63,41 @@
                         <div class="table-responsive">
                         <?php 
 
-include "config.php";
-
-    if (isset($_POST['update'])) {
-        $product_id = $_GET['id']; 
-
-        $name = $_POST['name'];
-
-        $model = $_POST['model'];
-
-        $image = $_POST['image'];
-
-        $price = $_POST['price'];
-
-        $sql = "UPDATE `card_item` SET `name`='$name',`model`='$model',`image`='$image',`price`='$price' WHERE `id`='$product_id'"; 
-
-        $result = $conn->query($sql); 
-
-        if ($result == TRUE) {
-
-            header('location:product.php');
-
-        }else{
-
-            echo "Error:" . $sql . "<br>" . $conn->error;
-
-        }
-
-    } 
+include "config.php"; 
 
 if (isset($_GET['id'])) {
 
-    $product_id = $_GET['id']; 
+    $dashboard_id = $_GET['id'];
 
-    $sql = "SELECT * FROM `card_item` WHERE `id`='$product_id'";
+    $sql = "DELETE FROM `contact_form` WHERE `id`='$dashboard_id'";
 
-    $result = $conn->query($sql); 
+     $result = $conn->query($sql);
 
-    if ($result->num_rows > 0) {        
+     if ($result == TRUE) {
 
-        while ($row = $result->fetch_assoc()) {
+        header('location:Dashboard.php');
 
-            $name = $row['name'];
+    }else{
 
-            $model = $row['model'];
+        echo "Error:" . $sql . "<br>" . $conn->error;
 
-            $image = $row['image'];
-
-            $price = $row['price'];
-
-            $id = $row['id'];
-
-        } 
-
-    ?>
-         <div class="form-control">
-
-        
-
-        <form action="" method="post">
-
-        <label >Name : </label><br>
-       
-        <input type="text" name="name" value="<?php echo $name; ?>"><br>
-
-        <input type="hidden" name="product_id" value="<?php echo $id; ?>">
-        
-        <label>Model : </label><br>
-            <input type="text" name="model" value="<?php echo $model; ?>"><br>
-            <label>Image : </label><br>
-            <input type="file" id="myFile" name="image" value="<?php echo $image; ?>"><br>
-            <label>Price : </label><br>
-            <input type="text" name="price" value="<?php echo $price; ?>"><br>
-            <input type="submit" value="Update" name="update">
-
-
-
-            </form> 
-        </div>
-        
-
-    <?php
-
-} else{ 
-
-    header('Location: dashboard.php');
+    }
 
 } 
 
-}
+?>
 
-?> 
-
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+        </main>
+        
+    </div>
+    
 </body>
 </html>
+
+
 
