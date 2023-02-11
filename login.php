@@ -30,7 +30,7 @@ if(isset($_POST['submit'])){
       }
      
    }else{
-      $error[] = 'incorrect email or password!';
+     echo '<script>alert("Incorrect email or password! Try again.")</script>';
    }
 
 };
@@ -57,6 +57,7 @@ if(isset($_POST['submit'])){
     
       <div class="form-control" style="margin-left: 10px;">
 
+<div class="form-login" style="padding-right:10px">
 <form action="" method="post">
       <?php
       if(isset($error)){
@@ -70,10 +71,12 @@ if(isset($_POST['submit'])){
       <input type="email" name="email" required placeholder="Enter your email">
       <label>Password</label>
       <input type="password" name="password" required placeholder="Enter your password">
-      <input type="submit" name="submit" value="Login now" class="form-btn">
-      <p>Don't have an account? <a href="SignUp.php">Register now</a></p>
-   </form>
-
+      <div style="padding-top:10px">
+      <input type="submit" name="submit" value="Login now" class="form-btn" style="cursor:pointer;background-color:#159b83;color:white;">
+      </div>
+      <p>Don't have an account? <a href="SignUp.php">Register now!</a></p>
+</form>
+</div>
 </div>
 
 </body>

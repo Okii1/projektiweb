@@ -23,7 +23,6 @@
         <div class="sidebar-menu">
             <ul>
                 <li>
-                    <a href="">
                         <span class="ti-home"></span>
                         <li> <span class="fa fa-dashboard">Dashboard </span> </li>
                         <li> <span><a href="user.php" class="fa fa-user">User</a></span> </li>
@@ -31,7 +30,6 @@
                         <li> <span><a href="searchUsers.php" class="fa fa-search-plus">Search Users</a></span> </li>        
                         <li> <span><a href="search.php" class="fa fa-search-minus">Search Products</a></span> </li>  
                         <li> <span><a href="logout.php" class="fa fa-sign-out">LogOut</a> </span> </li>
-                    </a>
                 </li>
                 
             </ul>

@@ -60,6 +60,13 @@ button.white{
     transition: 0.2 ease;
 }
 
+.form-fix label{
+    display: inline-block;
+    margin-bottom: 5px;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
 .section-p1 {
     padding: 40px 80px;
 }
@@ -1295,6 +1302,8 @@ color: white;
 .form-control label{
     display: inline-block;
     margin-bottom: 5px;
+    padding-top: 10px;
+    padding-left: 10px;
 }
 
 .form-control input{

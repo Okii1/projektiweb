@@ -41,22 +41,20 @@ if(isset($_POST['submit'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up Form</title>
-    <link rel="stylesheet" href="style.css">
-        
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
-</head>
+    <title>Sign Up Form</title>    
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+   <link rel="stylesheet" href="style.css">
+   </head>
 <body>
   
 <div class="signup">
     <div class="container">
         <div class="header">
-            <h2 style="padding-left : 155px;color:white; font-size: 40px;">SignUp Form</h2>
+        <h2 style="padding-left : 155px;color:white; font-size: 40px;">SignUp Form</h2>
         </div>
-
-    
         <div class="form-control" style="margin-left: 10px;">
 
+<div class="form-signup" style="padding-right:10px">
 <form action="" method="post">
    <?php
    if(isset($error)){
@@ -66,24 +64,27 @@ if(isset($_POST['submit'])){
    };
    ?>
     <br>
-    <label >Name</label>
-   <input type="text" name="name" required placeholder="Enter your name">
-   <label>Lastname</label>
-   <input type="text" name="lastname" required placeholder="Enter your lastname">
-   <label>Email</label>
-   <input type="email" name="email" required placeholder="Enter your email">
-   <label>Password</label>
-   <input type="password" name="password" required placeholder="Enter your password">
-   <label>Confirm Password</label>
-   <input type="password" name="cpassword" required placeholder="Confirm your password">
+   <label>Name</label>
+   <input type="text" name="name" required placeholder="Enter your name...">
+   <label style="padding-top:10px">Last Name</label>
+   <input type="text" name="lastname" required placeholder="Enter your last name...">
+   <label style="padding-top:10px">Email</label>
+   <input type="email" name="email" required placeholder="Enter your email...">
+   <label style="padding-top:10px">Password</label>
+   <input type="password" name="password" required placeholder="Enter your password...">
+   <label style="padding-top:10px">Confirm Password</label>
+   <input type="password" name="cpassword" required placeholder="Confirm your password...">
+   <br>
    <select name="user_type">
       <option value="user">User</option>
       <option value="admin">Admin</option>
    </select>
-   <input type="submit" name="submit" value="Submit" class="btn">
-   
+   <div class="submit-btn" style="padding-top:20px;">
+   <input type="submit" name="submit" value="Submit" class="btn" style="cursor:pointer;background-color:#159b83;color:white;">
+</div>
 </form>
-<p>You have a account?<a href="login.php"><button class="normal">Login</button> </a></p> 
+</div>
+<p>Already have an account? <a href="login.php">Login here! </a></p> 
 
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

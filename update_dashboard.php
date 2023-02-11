@@ -23,15 +23,13 @@
         <div class="sidebar-menu">
             <ul>
                 <li>
-                    <a href="">
                         <span class="ti-home"></span>
-                        <span>  <a href=Dashboard.php class="fa fa-dashboard">Dashboard </a></span>
+                        <span class="fa fa-dashboard">Dashboard</span>
                         <li> <span><a href="user.php" class="fa fa-user">User</a></span> </li>
                         <li> <span><a href="product.php" class="fa fa-pencil-square">Product</a></span> </li>  
                         <li> <span><a href="searchUsers.php" class="fa fa-search-plus">Search Users</a></span> </li>     
                         <li> <span><a href="search.php" class="fa fa-search-minus">Search Products</a></span> </li>  
                         <li> <span><a href="logout.php" class="fa fa-sign-out">LogOut</a> </span> </li>
-                    </a>
                 </li>
                 
             </ul>
@@ -44,7 +42,7 @@
         <header>
             <div class="search-wrapper">
                 <span class="ti-search"></span>
-                <h3> Update Contact Dashboard</h3>
+                <h3>Contact Dashboard Update Form</h3>
             </div>
             
             <div class="social-icons">
