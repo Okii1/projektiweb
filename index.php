@@ -99,7 +99,7 @@ echo '';
                     <h5>Cartoon Astronuat T-Shirts</h5>
                     <h4>78€</h4>
                 </div>
-                <a href="#"> <i class="fa fa-shopping-cart cart"></i></a>
+                <a href="cart.php"> <i class="fa fa-shopping-cart cart"></i></a>
             </div>
             <div class="pro">
                 <img src="img//products/f2.jpg" alt="">
@@ -108,7 +108,7 @@ echo '';
                     <h5>Cartoon Astronuat T-Shirts</h5>
                     <h4>78€</h4>
                 </div>
-                <a href="#"> <i class="fa fa-shopping-cart cart"></i></a>
+                <a href="cart.php"> <i class="fa fa-shopping-cart cart"></i></a>
             </div>
             <div class="pro">
                 <img src="img//products/f3.jpg" alt="">
@@ -117,7 +117,7 @@ echo '';
                     <h5>Cartoon Astronuat T-Shirts</h5>
                     <h4>78€</h4>
                 </div>
-                <a href="#"> <i class="fa fa-shopping-cart cart"></i></a>
+                <a href="cart.php"> <i class="fa fa-shopping-cart cart"></i></a>
             </div>
             <div class="pro">
                 <img src="img//products/f5.jpg" alt="">
@@ -126,7 +126,7 @@ echo '';
                     <h5>Cartoon Astronuat T-Shirts</h5>
                     <h4>78€</h4>
                 </div>
-                <a href="#"> <i class="fa fa-shopping-cart cart"></i></a>
+                <a href="cart.php"> <i class="fa fa-shopping-cart cart"></i></a>
             </div>
             <div class="pro">
                 <img src="img//products/f6.jpg" alt="">
@@ -135,7 +135,7 @@ echo '';
                     <h5>Cartoon Astronuat T-Shirts</h5>
                     <h4>78€</h4>
                 </div>
-                <a href="#"> <i class="fa fa-shopping-cart cart"></i></a>
+                <a href="cart.php"> <i class="fa fa-shopping-cart cart"></i></a>
             </div>
             <div class="pro">
                 <img src="img//products/f4.jpg" alt="">
@@ -144,7 +144,7 @@ echo '';
                     <h5>Cartoon Astronuat T-Shirts</h5>
                     <h4>78€</h4>
                 </div>
-                <a href="#"> <i class="fa fa-shopping-cart cart"></i></a>
+                <a href="cart.php"> <i class="fa fa-shopping-cart cart"></i></a>
             </div>
             <div class="pro">
                 <img src="img//products/f7.jpg" alt="">
@@ -153,7 +153,7 @@ echo '';
                     <h5>Cartoon Astronuat T-Shirts</h5>
                     <h4>78€</h4>
                 </div>
-                <a href="#"> <i class="fa fa-shopping-cart cart"></i></a>
+                <a href="cart.php"> <i class="fa fa-shopping-cart cart"></i></a>
             </div>
             <div class="pro">
                 <img src="img//products/f8.jpg" alt="">
@@ -162,7 +162,7 @@ echo '';
                     <h5>Cartoon Astronuat T-Shirts</h5>
                     <h4>78€</h4>
                 </div>
-                <a href="#"> <i class="fa fa-shopping-cart cart"></i></a>
+                <a href="cart.php"> <i class="fa fa-shopping-cart cart"></i></a>
             </div>
             
             
@@ -173,7 +173,7 @@ echo '';
     <section id="banner" class="section-m1">
         <h4>Repair Services</h4>
         <h2>Up to <span>50% Off</span> - All t-Shirts</h2>
-        <button class="normal">Explore More</button>
+        <a href="shop.php"><button class="normal">Explore More</button></a>
     </section>
 
     <section id="product1" class="section-p1">
@@ -187,7 +187,7 @@ echo '';
                     <h5>Cartoon Astronuat T-Shirts</h5>
                     <h4>78€</h4>
                 </div>
-                <a href="#"> <i class="fa fa-shopping-cart cart"></i></a>
+                <a href="cart.php"> <i class="fa fa-shopping-cart cart"></i></a>
             </div>
             <div class="pro">
                 <img src="img//products/n2.jpg" alt="">
@@ -196,7 +196,7 @@ echo '';
                     <h5>Cartoon Astronuat T-Shirts</h5>
                     <h4>78€</h4>
                 </div>
-                <a href="#"> <i class="fa fa-shopping-cart cart"></i></a>
+                <a href="cart.php"> <i class="fa fa-shopping-cart cart"></i></a>
             </div>
             <div class="pro">
                 <img src="img//products/n3.jpg" alt="">
@@ -205,7 +205,7 @@ echo '';
                     <h5>Cartoon Astronuat T-Shirts</h5>
                     <h4>78€</h4>
                 </div>
-                <a href="#"> <i class="fa fa-shopping-cart cart"></i></a>
+                <a href="cart.php"> <i class="fa fa-shopping-cart cart"></i></a>
             </div>
             <div class="pro">
                 <img src="img//products/n5.jpg" alt="">
@@ -214,7 +214,7 @@ echo '';
                     <h5>Cartoon Astronuat T-Shirts</h5>
                     <h4>78€</h4>
                 </div>
-                <a href="#"> <i class="fa fa-shopping-cart cart"></i></a>
+                <a href="cart.php"> <i class="fa fa-shopping-cart cart"></i></a>
             </div>
             <div class="pro">
                 <img src="img//products/n6.jpg" alt="">
@@ -223,7 +223,7 @@ echo '';
                     <h5>Cartoon Astronuat T-Shirts</h5>
                     <h4>78€</h4>
                 </div>
-                <a href="#"> <i class="fa fa-shopping-cart cart"></i></a>
+                <a href="cart.php"> <i class="fa fa-shopping-cart cart"></i></a>
             </div>
             <div class="pro">
                 <img src="img//products/n4.jpg" alt="">
@@ -232,7 +232,7 @@ echo '';
                     <h5>Cartoon Astronuat T-Shirts</h5>
                     <h4>78€</h4>
                 </div>
-                <a href="#"> <i class="fa fa-shopping-cart cart"></i></a>
+                <a href="cart.php"> <i class="fa fa-shopping-cart cart"></i></a>
             </div>
             <div class="pro">
                 <img src="img//products/n7.jpg" alt="">
@@ -241,7 +241,7 @@ echo '';
                     <h5>Cartoon Astronuat T-Shirts</h5>
                     <h4>78€</h4>
                 </div>
-                <a href="#"> <i class="fa fa-shopping-cart cart"></i></a>
+                <a href="cart.php"> <i class="fa fa-shopping-cart cart"></i></a>
             </div>
             <div class="pro">
                 <img src="img//products/n8.jpg" alt="">
@@ -250,7 +250,7 @@ echo '';
                     <h5>Cartoon Astronuat T-Shirts</h5>
                     <h4>78€</h4>
                 </div>
-                <a href="#"> <i class="fa fa-shopping-cart cart"></i></a>
+                <a href="cart.php"> <i class="fa fa-shopping-cart cart"></i></a>
             </div>
             
             

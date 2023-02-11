@@ -103,7 +103,7 @@
     <section id="pagination" class="section-p1">
         <a href="#">1</a>
         <a href="#">2</a>
-        <a href="#"><i class="fal fa-long-arrow-alt-right"></i></a>
+        <a href="#"><i class="fa fa-angle-double-right"></i></a>
     </section>
 
     <?php include 'footer.php';?>

@@ -106,14 +106,14 @@ if(isset($_POST['submit'])){
       };
    };
    ?>
-    <label>Name</label>
-   <input type="text" name="name" required placeholder="enter your name">
+   <label>Name</label>
+   <input type="text" name="name" required placeholder="Enter your name...">
    <label>Email</label>
-   <input type="text" name="email" required placeholder="enter your email">
+   <input type="text" name="email" required placeholder="Enter your email...">
    <label>Subject</label>
-   <input type="text" name="subject" required placeholder="enter your subject">
+   <input type="text" name="subject" required placeholder="Enter your subject...">
    <label>Your Message</label>
-   <input type="text" name="message" required placeholder="enter your message">
+   <input type="text" name="message" required placeholder="Enter your message...">
    
    <input type="submit" name="submit" value="Submit now" class="btn">
  </form>
