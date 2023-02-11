@@ -48,9 +48,34 @@ if(isset($_POST['input'])){
 <?php
 }
 
-else{
-    echo "<h6 class='text-danger text-center mt-3'>No data found</h6>";
-}    }
+else if($row = mysqli_fetch_assoc($result) == 0){
+echo '<main>
+    <section class="recent">
+        <div class="activity-grid">
+            <div class="activity-card">
+                <h3>Results</h3>
+                <a style="float:right;margin-top:15px;color:black;" href="create.php"><b> | Create  </b></a>
+                <div class="table-responsive">
+                <table>
+                        <thead>
+                            <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Model</th>
+                            <th>Image</th>
+                            <th>Price</th>
+                            <th>Actions</th>     
+                                
+                            </tr>
+                        </thead>
+                </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</main>';
+}}
 ?>
                         </div>
                     </div>
