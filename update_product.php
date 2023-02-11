@@ -56,45 +56,106 @@
             <section class="recent">
                 <div class="activity-grid">
                     <div class="activity-card">
-                        <h3>User</h3>
-                        <a style="float:right;margin-top:15px;color:black;" href="create.php"><b> | Create  </b></a>
+                     
+                        
                         <div class="table-responsive">
-                        <table>
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Lastname</th>
-                                        <th>Email</th>
-                                        <th>User_type</th>
-                                        <th>Actions</th>
-                                        
-                                    </tr>
-                                    <tbody>  <?php
-                         $connect = mysqli_connect("localhost","root","","user_db");
-                         $query = "SELECT * FROM user_form";
-                         $result = mysqli_query($connect,$query);
-                         while($row = mysqli_fetch_array($result)){?>
-                                    
-                                    <tr>
-                         <td> <?=$row['id'] ?>   </td> 
-                         <td> <?=$row['name'] ?>   </td> 
-                         <td> <?=$row['lastname'] ?>  </td> 
-                         <td><?=$row['email'] ?>   </td>
-                         <td><?=$row['user_type'] ?>   </td>  
-                         <td><a style="color:black;" href="update.php?id=<?php echo $row['id']; ?>">Edit</a> | <a style="color:black;" href="delete.php?id=<?php echo $row['id']; ?>">Delete</a></td>
-                         </tr>
-               
-           <?php }
-?>  
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-        </main>
+                        <?php 
+
+include "config.php";
+
+    if (isset($_POST['update'])) {
+        $product_id = $_GET['id']; 
+
+        $name = $_POST['name'];
+
+        $model = $_POST['model'];
+
+        $image = $_POST['image'];
+
+        $price = $_POST['price'];
+
+        $sql = "UPDATE `card_item` SET `name`='$name',`model`='$model',`image`='$image',`price`='$price' WHERE `id`='$product_id'"; 
+
+        $result = $conn->query($sql); 
+
+        if ($result == TRUE) {
+
+            echo "Record updated successfully.";
+
+        }else{
+
+            echo "Error:" . $sql . "<br>" . $conn->error;
+
+        }
+
+    } 
+
+if (isset($_GET['id'])) {
+
+    $product_id = $_GET['id']; 
+
+    $sql = "SELECT * FROM `card_item` WHERE `id`='$product_id'";
+
+    $result = $conn->query($sql); 
+
+    if ($result->num_rows > 0) {        
+
+        while ($row = $result->fetch_assoc()) {
+
+            $name = $row['name'];
+
+            $model = $row['model'];
+
+            $image = $row['image'];
+
+            $price = $row['price'];
+
+            $id = $row['id'];
+
+        } 
+
+    ?>
+         <div class="form-control">
+
+        <h2>Update Form For Products</h2>
+
+        <form action="" method="post">
+
+        <label >Name : </label><br>
+       
+        <input type="text" name="name" value="<?php echo $name; ?>"><br>
+
+        <input type="hidden" name="user_id" value="<?php echo $id; ?>">
         
-    </div>
-    
+        <label>Model : </label><br>
+            <input type="text" name="model" value="<?php echo $model; ?>"><br>
+            <label>Image : </label><br>
+            <input type="text" id="img" name="image" value="<?php echo $image; ?>"> <br>
+            <label>Price : </label><br>
+            <input type="text" name="price" value="<?php echo $price; ?>"><br>
+            
+                    
+            <input type="submit" value="Update" name="update">
+
+
+
+            </form> 
+        </div>
+        
+
+    <?php
+
+} else{ 
+
+    header('Location: dashboard.php');
+
+} 
+
+}
+
+?> 
+
 </body>
 </html>
+
+

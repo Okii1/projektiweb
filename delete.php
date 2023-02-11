@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,37 +57,35 @@
             <section class="recent">
                 <div class="activity-grid">
                     <div class="activity-card">
-                        <h3>User</h3>
-                        <a style="float:right;margin-top:15px;color:black;" href="create.php"><b> | Create  </b></a>
+                     
+                        
                         <div class="table-responsive">
-                        <table>
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Lastname</th>
-                                        <th>Email</th>
-                                        <th>User_type</th>
-                                        <th>Actions</th>
-                                        
-                                    </tr>
-                                    <tbody>  <?php
-                         $connect = mysqli_connect("localhost","root","","user_db");
-                         $query = "SELECT * FROM user_form";
-                         $result = mysqli_query($connect,$query);
-                         while($row = mysqli_fetch_array($result)){?>
-                                    
-                                    <tr>
-                         <td> <?=$row['id'] ?>   </td> 
-                         <td> <?=$row['name'] ?>   </td> 
-                         <td> <?=$row['lastname'] ?>  </td> 
-                         <td><?=$row['email'] ?>   </td>
-                         <td><?=$row['user_type'] ?>   </td>  
-                         <td><a style="color:black;" href="update.php?id=<?php echo $row['id']; ?>">Edit</a> | <a style="color:black;" href="delete.php?id=<?php echo $row['id']; ?>">Delete</a></td>
-                         </tr>
-               
-           <?php }
-?>  
+                        <?php 
+
+include "config.php"; 
+
+if (isset($_GET['id'])) {
+
+    $user_id = $_GET['id'];
+
+    $sql = "DELETE FROM `user_form` WHERE `id`='$user_id'";
+
+     $result = $conn->query($sql);
+
+     if ($result == TRUE) {
+
+        echo "Record deleted successfully.";
+
+    }else{
+
+        echo "Error:" . $sql . "<br>" . $conn->error;
+
+    }
+
+} 
+
+?>
+
                         </div>
                     </div>
                 </div>
@@ -98,3 +97,6 @@
     
 </body>
 </html>
+
+
+

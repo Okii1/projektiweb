@@ -57,7 +57,7 @@
                 <div class="activity-grid">
                     <div class="activity-card">
                         <h3>Product</h3>
-                        
+                        <a style="float:right;margin-top:15px;color:black;" href="create_product.php"><b> | Create  </b></a>
                         <div class="table-responsive">
                         <table>
                                 <thead>
@@ -80,6 +80,8 @@
                          <td> <?=$row['model'] ?>  </td> 
                          <td><?=$row['image'] ?>   </td>
                          <td><?=$row['price'] ?>   </td>  
+                         <td><a style="color:black;" href="update_product.php?id=<?php echo $row['id']; ?>">Edit</a> | <a style="color:black;" href="delete_product.php?id=<?php echo $row['id']; ?>">Delete</a></td>
+
                          </tr>
                
            <?php }

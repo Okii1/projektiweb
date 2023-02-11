@@ -56,45 +56,74 @@
             <section class="recent">
                 <div class="activity-grid">
                     <div class="activity-card">
-                        <h3>User</h3>
-                        <a style="float:right;margin-top:15px;color:black;" href="create.php"><b> | Create  </b></a>
+                     
+                        
                         <div class="table-responsive">
-                        <table>
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Lastname</th>
-                                        <th>Email</th>
-                                        <th>User_type</th>
-                                        <th>Actions</th>
-                                        
-                                    </tr>
-                                    <tbody>  <?php
-                         $connect = mysqli_connect("localhost","root","","user_db");
-                         $query = "SELECT * FROM user_form";
-                         $result = mysqli_query($connect,$query);
-                         while($row = mysqli_fetch_array($result)){?>
-                                    
-                                    <tr>
-                         <td> <?=$row['id'] ?>   </td> 
-                         <td> <?=$row['name'] ?>   </td> 
-                         <td> <?=$row['lastname'] ?>  </td> 
-                         <td><?=$row['email'] ?>   </td>
-                         <td><?=$row['user_type'] ?>   </td>  
-                         <td><a style="color:black;" href="update.php?id=<?php echo $row['id']; ?>">Edit</a> | <a style="color:black;" href="delete.php?id=<?php echo $row['id']; ?>">Delete</a></td>
-                         </tr>
-               
-           <?php }
-?>  
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-        </main>
+                        <?php 
+
+include "config.php";
+
+    if (isset($_POST['submit'])) {
+       
+        $name = $_POST['name'];
+
+        $lastname = $_POST['lastname'];
+
+        $email = $_POST['email'];
+
+        $password = md5($_POST['password']);
+
+        $user_type = $_POST['user_type']; 
+
+        $sql = "INSERT INTO `user_form`(`name`, `lastname`, `email`, `password`, `user_type`) VALUES ('$name','$lastname','$email','$password','$user_type')";
+
+    $result = $conn->query($sql);
+
+    if ($result == TRUE) {
+
+      echo "New record created successfully.";
+
+    }else{
+
+      echo "Error:". $sql . "<br>". $conn->error;
+
+    } 
+
+    $conn->close(); 
+
+  }
+
+?>
+         <div class="form-control">
+
+         <h2>User Update Form</h2>
+
+          <form action="" method="post">
+
+         <label >Name : </label><br>
+            <input type="text" name="name" required placeholder="enter your name"><br>
+            <label>Lastname : </label><br>
+            <input type="text" name="lastname" required placeholder="enter your lastname"><br>
+            <label>Email : </label><br>
+            <input type="email" name="email" required placeholder="enter your email"><br>
+            <label>Password : </label><br>
+            <input type="password" name="password" required placeholder="enter your password"><br>
+            <label>Confirm Password : </label><br>
+            <input type="password" name="cpassword" required placeholder="confirm your password"><br>
+            <select name="user_type"><br>
+                <option value="user">user</option>
+                <option value="admin">admin</option>
+            </select><br>
+
+            <input type="submit" name="submit" value="submit">
+
         
-    </div>
-    
-</body>
-</html>
+
+        </form> 
+        </div>
+
+    </body>
+
+</html> 
+
+

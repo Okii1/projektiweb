@@ -22,15 +22,12 @@
         
         <div class="sidebar-menu">
             <ul>
-                <li>
-                    <a href="">
-                        <span class="ti-home"></span>
-                           <span class="fa fa-dashboard">Dashboard </span> <br>
-                        <li> <span><a href="user.php" class="fa fa-user">User</a></span> </li>
-                        <li> <span><a href="product.php" class="fa fa-pencil-square">Product</a></span> </li>
-                        <li> <span><a href="logout.php" class="fa fa-sign-out">LogOut</a> </span> </li>
-                    </a>
-                </li>
+                <span class="ti-home"></span>
+                 <li> <span class="fa fa-dashboard">Dashboard </span> </li>
+                 <li> <span><a href="user.php" class="fa fa-user">User</a></span> </li>
+                 <li> <span><a href="product.php" class="fa fa-pencil-square">Product</a></span> </li>
+                 <li> <span><a href="logout.php" class="fa fa-sign-out">LogOut</a> </span> </li>
+                 
                 
             </ul>
         </div>

@@ -56,45 +56,66 @@
             <section class="recent">
                 <div class="activity-grid">
                     <div class="activity-card">
-                        <h3>User</h3>
-                        <a style="float:right;margin-top:15px;color:black;" href="create.php"><b> | Create  </b></a>
+                     
+                        
                         <div class="table-responsive">
-                        <table>
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Lastname</th>
-                                        <th>Email</th>
-                                        <th>User_type</th>
-                                        <th>Actions</th>
-                                        
-                                    </tr>
-                                    <tbody>  <?php
-                         $connect = mysqli_connect("localhost","root","","user_db");
-                         $query = "SELECT * FROM user_form";
-                         $result = mysqli_query($connect,$query);
-                         while($row = mysqli_fetch_array($result)){?>
-                                    
-                                    <tr>
-                         <td> <?=$row['id'] ?>   </td> 
-                         <td> <?=$row['name'] ?>   </td> 
-                         <td> <?=$row['lastname'] ?>  </td> 
-                         <td><?=$row['email'] ?>   </td>
-                         <td><?=$row['user_type'] ?>   </td>  
-                         <td><a style="color:black;" href="update.php?id=<?php echo $row['id']; ?>">Edit</a> | <a style="color:black;" href="delete.php?id=<?php echo $row['id']; ?>">Delete</a></td>
-                         </tr>
-               
-           <?php }
-?>  
-                        </div>
-                    </div>
-                </div>
-            </section>
+                        <?php 
+
+include "config.php";
+
+    if (isset($_POST['submit'])) {
+       
+        $name = $_POST['name'];
+
+        $model = $_POST['model'];
+
+        $image = $_POST['image'];
+
+        $price = $_POST['price'];
+
+        $sql = "INSERT INTO `card_item`(`name`, `model`, `image`, `price`) VALUES ('$name','$model','$image','$price')";
+
+    $result = $conn->query($sql);
+
+    if ($result == TRUE) {
+
+      echo "New record created successfully.";
+
+    }else{
+
+      echo "Error:". $sql . "<br>". $conn->error;
+
+    } 
+
+    $conn->close(); 
+
+  }
+
+?>
+         <div class="form-control">
+
+         <h2>Create Form For Products</h2>
+
+          <form action="" method="post">
+
+         <label >Name : </label><br>
+            <input type="text" name="name" required placeholder="enter your name"><br>
+            <label>Model : </label><br>
+            <input type="text" name="model" required placeholder="enter your model"><br>
+            <label>Image : </label><br>
+            <input type="file" id="myFile" name="image" ><br>
+            <label>Price : </label><br>
+            <input type="text" name="price" required placeholder="enter your Price"><br>
             
-        </main>
+                  
+            <input type="submit" name="submit" value="submit">
+
         
-    </div>
-    
-</body>
-</html>
+
+        </form> 
+        </div>
+
+    </body>
+
+</html> 
+

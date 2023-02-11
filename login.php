@@ -55,7 +55,7 @@ if(isset($_POST['submit'])){
         </div>
 
     
-      <div class="form-control">
+      <div class="form-control" style="margin-left: 10px;">
 
 <form action="" method="post">
       <?php
@@ -67,11 +67,11 @@ if(isset($_POST['submit'])){
       ?>
       <br>
       <label>Email</label>
-      <input type="email" name="email" required placeholder="enter your email">
+      <input type="email" name="email" required placeholder="Enter your email">
       <label>Password</label>
-      <input type="password" name="password" required placeholder="enter your password">
-      <input type="submit" name="submit" value="login now" class="form-btn">
-      <p>don't have an account? <a href="SignUp.php">register now</a></p>
+      <input type="password" name="password" required placeholder="Enter your password">
+      <input type="submit" name="submit" value="Login now" class="form-btn">
+      <p>Don't have an account? <a href="SignUp.php">Register now</a></p>
    </form>
 
 </div>
