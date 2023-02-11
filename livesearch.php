@@ -38,7 +38,7 @@ if(isset($_POST['input'])){
             <td><?php echo $Model;?></td>
             <td><?php echo $Image;?></td> 
             <td><?php echo $Price;?></td> 
-            <td><a style="color:black;" href="update.php?id=<?php echo $row['id']; ?>">Edit</a> | <a style="color:black;" href="delete.php?id=<?php echo $row['id']; ?>">Delete</a></td> 
+            <td><a style="color:black;" href="update_product.php?id=<?php echo $row['id']; ?>">Edit</a> | <a style="color:black;" href="delete_product.php?id=<?php echo $row['id']; ?>">Delete</a></td> 
         </tr>
         <?php 
     }

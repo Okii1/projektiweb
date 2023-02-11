@@ -59,7 +59,7 @@
                 <div class="activity-grid">
                     <div class="activity-card">
                         <h3>Results</h3>
-                        <a style="float:right;margin-top:15px;color:black;" href="create.php"><b> | Create  </b></a>
+                        <a style="float:right;margin-top:15px;color:black;" href="create_product.php"><b> | Create  </b></a>
                         <div class="table-responsive">
                         <table>
                                 <thead>
