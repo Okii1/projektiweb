@@ -100,23 +100,23 @@ include "config.php";
 
           <form action="" method="post">
 
-         <label >Name : </label><br>
-            <input type="text" name="name" required placeholder="enter your name"><br>
-            <label>Lastname : </label><br>
-            <input type="text" name="lastname" required placeholder="enter your lastname"><br>
-            <label>Email : </label><br>
-            <input type="email" name="email" required placeholder="enter your email"><br>
-            <label>Password : </label><br>
-            <input type="password" name="password" required placeholder="enter your password"><br>
-            <label>Confirm Password : </label><br>
-            <input type="password" name="cpassword" required placeholder="confirm your password"><br>
+         <label >Name: </label><br>
+            <input type="text" name="name" required placeholder="Enter the name..."style="padding: 6px 10px;margin: 8px 0;"><br>
+            <label>Lastname: </label><br>
+            <input type="text" name="lastname" required placeholder="Enter the last name..."style="padding: 6px 10px;margin: 8px 0;"><br>
+            <label>Email: </label><br>
+            <input type="email" name="email" required placeholder="Enter the email..."style="padding: 6px 10px;margin: 8px 0;"><br>
+            <label>Password: </label><br>
+            <input type="password" name="password" required placeholder="Enter the password..."style="padding: 6px 10px;margin: 8px 0;"><br>
+            <label>Confirm Password: </label><br>
+            <input type="password" name="cpassword" required placeholder="Confirm the password..."style="padding: 6px 10px;margin: 8px 0;"><br>
             <select name="user_type"><br>
                 <option value="user">user</option>
                 <option value="admin">admin</option>
-            </select><br>
-
-            <input type="submit" name="submit" value="submit">
-
+            </select>
+            <div style="padding-top:10px;">
+            <input type="submit" name="submit" value="SUBMIT" style="background: #0066A2;color: white;border:none;padding: 10px 22px;margin: 1px .5px;font: bold15px arial,sans-serif;cursor:pointer;">
+            </div>
         
 
         </form> 

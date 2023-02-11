@@ -121,24 +121,21 @@ if (isset($_GET['id'])) {
 
         <form action="" method="post">
 
-        <label >Name : </label><br>
+        <label >Name: </label><br>
        
-        <input type="text" name="name" value="<?php echo $name; ?>"><br>
+        <input type="text" name="name" value="<?php echo $name; ?>"style="padding: 6px 10px;margin: 8px 0;"><br>
 
-        <input type="hidden" name="dashboard_id" value="<?php echo $id; ?>">
+        <input type="hidden" name="dashboard_id" value="<?php echo $id; ?>"style="padding: 6px 10px;margin: 8px 0;">
         
-        <label>Email : </label><br>
-            <input type="text" name="email" value="<?php echo $email; ?>"><br>
-            <label>Subject : </label><br>
-            <input type="text" name="subject" value="<?php echo $subject; ?>"><br>
-            <label>Message : </label><br>
-            <input type="text" name="message" value="<?php echo $message; ?>"><br>
-            
-                    
-            <input type="submit" value="Update" name="update">
-
-
-
+        <label>Email: </label><br>
+            <input type="text" name="email" value="<?php echo $email; ?>"style="padding: 6px 10px;margin: 8px 0;"><br>
+            <label>Subject: </label><br>
+            <input type="text" name="subject" value="<?php echo $subject; ?>"style="padding: 6px 10px;margin: 8px 0;"><br>
+            <label>Message: </label><br>
+            <input type="text" name="message" value="<?php echo $message; ?>"style="padding: 6px 10px;margin: 8px 0;"><br>
+            <div style="padding-top:10px;">
+            <input type="submit" name="update" value="UPDATE" style="background: #0066A2;color: white;border:none;padding: 10px 22px;margin: 1px .5px;font: bold15px arial,sans-serif;cursor:pointer;">
+            </div>
             </form> 
         </div>
         

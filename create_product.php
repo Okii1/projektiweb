@@ -99,20 +99,17 @@ include "config.php";
 
           <form action="" method="post">
 
-         <label >Name : </label><br>
-            <input type="text" name="name" required placeholder="enter your name"><br>
-            <label>Model : </label><br>
-            <input type="text" name="model" required placeholder="enter your model"><br>
-            <label>Image : </label><br>
-            <input type="file" id="myFile" name="image" ><br>
-            <label>Price : </label><br>
-            <input type="text" name="price" required placeholder="enter your Price"><br>
-            
-                  
-            <input type="submit" name="submit" value="submit">
-
-        
-
+         <label >Name: </label><br>
+            <input type="text" name="name" required placeholder="Enter the name..."style="padding: 6px 10px;margin: 8px 0;"><br>
+            <label>Model: </label><br>
+            <input type="text" name="model" required placeholder="Enter the model..."style="padding: 6px 10px;margin: 8px 0;"><br>
+            <label>Image: </label><br>
+            <input type="file" id="myFile" name="image" style="padding-top:10px;padding-bottom:10px;"><br>
+            <label>Price: </label><br>
+            <input type="text" name="price" required placeholder="Enter the Price..."style="padding: 6px 10px;margin: 8px 0;"><br>
+            <div style="padding-top:10px;">
+            <input type="submit" name="submit" value="SUBMIT" style="background: #0066A2;color: white;border:none;padding: 10px 22px;margin: 1px .5px;font: bold15px arial,sans-serif;cursor:pointer;">
+            </div>
         </form> 
         </div>
 

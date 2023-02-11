@@ -11,7 +11,7 @@ if(isset($_POST['input'])){
                 <div class="activity-grid">
                     <div class="activity-card">
                         <h3>Results</h3>
-                        <a style="float:right;margin-top:15px;color:black;" href="create.php"><b> | Create  </b></a>
+                        <a style="float:right;margin-top:15px;color:black;" href="create_product.php"><b> | Create  </b></a>
                         <div class="table-responsive">
                         <table>
                                 <thead>
@@ -38,7 +38,7 @@ if(isset($_POST['input'])){
             <td><?php echo $Model;?></td>
             <td><?php echo $Image;?></td> 
             <td><?php echo $Price;?></td> 
-            <td><a style="color:black;" href="update_product.php?id=<?php echo $row['id']; ?>">Edit</a> | <a style="color:black;" href="delete_product.php?id=<?php echo $row['id']; ?>">Delete</a></td> 
+            <td><a href="update_product.php?id=<?php echo $row['id']; ?>"><button style="background-color:#4CAF50;border: none;color: white;padding: 10px 22px;text-align: center;text-decoration: none;font-size: 12px;margin: 1px .5px;cursor: pointer;">Edit</button></a> <a href="delete_product.php?id=<?php echo $row['id']; ?>"><button style="background-color:#f44336;border: none;color: white;padding: 10px 22px;text-align: center;text-decoration: none;font-size: 12px;margin: 1px .5px;cursor: pointer;">Delete</button></a></td>
         </tr>
         <?php 
     }
@@ -54,7 +54,7 @@ echo '<main>
         <div class="activity-grid">
             <div class="activity-card">
                 <h3>Results</h3>
-                <a style="float:right;margin-top:15px;color:black;" href="create.php"><b> | Create  </b></a>
+                <a style="float:right;margin-top:15px;color:black;" href="create_product.php"><b> | Create  </b></a>
                 <div class="table-responsive">
                 <table>
                         <thead>

@@ -129,40 +129,38 @@ if (isset($_GET['id'])) {
 
            <label> First name:</label><br>
 
-            <input type="text" name="name" value="<?php echo $name; ?>">
+            <input type="text" name="name" value="<?php echo $name; ?>" style="padding: 6px 10px;margin: 8px 0;">
 
-            <input type="hidden" name="user_id" value="<?php echo $id; ?>">
+            <input type="hidden" name="user_id" value="<?php echo $id; ?>"style="padding: 6px 10px;margin: 8px 0;">
 
             <br>
 
             <label>Last name:</label><br>
 
-            <input type="text" name="lastname" value="<?php echo $lastname; ?>">
+            <input type="text" name="lastname" value="<?php echo $lastname; ?>"style="padding: 6px 10px;margin: 8px 0;">
 
             <br>
 
             <label>Email: </label><br>
 
-            <input type="email" name="email" value="<?php echo $email; ?>">
+            <input type="email" name="email" value="<?php echo $email; ?>"style="padding: 6px 10px;margin: 8px 0;">
 
             <br>
 
             <label>Password:</label><br>
 
-            <input type="password" name="password" value="<?php echo $password; ?>">
+            <input type="password" name="password" value="<?php echo $password; ?>"style="padding: 6px 10px;margin: 8px 0;">
 
             <br>
-
            <label> User type:</label><br>
+           <div style="padding-top:10px;padding-bottom:10px;">
             <select name="user_type"><br>
-                <option value="<?php echo $user_type; ?>"><?php echo $user_type; ?></option>
-              
+            <option value="<?php echo $user_type; ?>"><?php echo $user_type; ?></option>
             </select><br>
-            <br><br>
-
-            <input type="submit" value="Update" name="update">
-
-        
+           </div>
+            <div style="padding-top:10px;">
+            <input type="submit" name="update" value="UPDATE" style="background: #0066A2;color: white;border:none;padding: 10px 22px;margin: 1px .5px;font: bold15px arial,sans-serif;cursor:pointer;">
+            </div>
 
          </form> 
         </div>

@@ -77,7 +77,7 @@
                          <td> <?=$row['model'] ?>  </td> 
                          <td><?=$row['image'] ?>   </td>
                          <td><?=$row['price'] ?>   </td>  
-                         <td><a style="color:black;" href="update_product.php?id=<?php echo $row['id']; ?>">Edit</a> | <a style="color:black;" href="delete_product.php?id=<?php echo $row['id']; ?>">Delete</a></td>
+                         <td><a href="update_product.php?id=<?php echo $row['id']; ?>"><button style="background-color:#4CAF50;border: none;color: white;padding: 10px 22px;text-align: center;text-decoration: none;font-size: 12px;margin: 1px .5px;cursor: pointer;">Edit</button></a> <a href="delete_product.php?id=<?php echo $row['id']; ?>"><button style="background-color:#f44336;border: none;color: white;padding: 10px 22px;text-align: center;text-decoration: none;font-size: 12px;margin: 1px .5px;cursor: pointer;">Delete</button></a></td>
 
                          </tr>
                

@@ -39,7 +39,7 @@ if(isset($_POST['input'])){
             <td><?php echo $LastName;?></td>
             <td><?php echo $Email;?></td> 
             <td><?php echo $User_Type;?></td> 
-            <td><a style="color:black;" href="update.php?id=<?php echo $row['id']; ?>">Edit</a> | <a style="color:black;" href="delete.php?id=<?php echo $row['id']; ?>">Delete</a></td> 
+            <td><a href="update.php?id=<?php echo $row['id']; ?>"><button style="background-color:#4CAF50;border: none;color: white;padding: 10px 22px;text-align: center;text-decoration: none;font-size: 12px;margin: 1px .5px;cursor: pointer;">Edit</button></a> <a href="delete.php?id=<?php echo $row['id']; ?>"><button style="background-color:#f44336;border: none;color: white;padding: 10px 22px;text-align: center;text-decoration: none;font-size: 12px;margin: 1px .5px;cursor: pointer;">Delete</button></a></td>
         </tr>
         <?php 
     }
