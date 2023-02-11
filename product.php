@@ -27,7 +27,8 @@
                         <span class="ti-home"></span>
                         <span>  <a href=Dashboard.php class="fa fa-dashboard">Dashboard </a></span> 
                         <li> <span><a href="user.php" class="fa fa-user">User</a></span> </li>
-                        <li> <span><a href="product.php" class="fa fa-pencil-square">Product</a></span> </li>       
+                        <li> <span><a href="product.php" class="fa fa-pencil-square">Product</a></span> </li>   
+                        <li> <span><a href="search.php" class="fa fa-search">Search</a></span> </li>    
                         <li> <span><a href="logout.php" class="fa fa-sign-out">LogOut</a> </span> </li>
                     </a>
                 </li>
@@ -40,14 +41,10 @@
     <div class="main-content">
         
         <header>
-            <div class="search-wrapper">
-                <span class="ti-search"></span>
-                <input type="search" placeholder="Search">
-            </div>
+           
             
             <div class="social-icons">
-                <span class="ti-bell"></span>
-                <span class="ti-comment"></span>
+            <h3>Product Management</h3>
                 <div></div>
             </div>
         </header>
@@ -56,7 +53,7 @@
             <section class="recent">
                 <div class="activity-grid">
                     <div class="activity-card">
-                        <h3>Product</h3>
+                        
                         <a style="float:right;margin-top:15px;color:black;" href="create_product.php"><b> | Create  </b></a>
                         <div class="table-responsive">
                         <table>
@@ -67,6 +64,7 @@
                                         <th>Model</th>
                                         <th>Image</th>
                                         <th>Price</th>
+                                        <th>Actions<th>
                                     </tr>
                                     <tbody>  <?php
                          $connect = mysqli_connect("localhost","root","","user_db");

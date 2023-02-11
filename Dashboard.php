@@ -26,6 +26,7 @@
                  <li> <span class="fa fa-dashboard">Dashboard </span> </li>
                  <li> <span><a href="user.php" class="fa fa-user">User</a></span> </li>
                  <li> <span><a href="product.php" class="fa fa-pencil-square">Product</a></span> </li>
+                 <li> <span><a href="search.php" class="fa fa-search">Search</a></span> </li>
                  <li> <span><a href="logout.php" class="fa fa-sign-out">LogOut</a> </span> </li>
                  
                 
@@ -37,10 +38,7 @@
     <div class="main-content">
         
         <header>
-            <div class="search-wrapper">
-                <span class="ti-search"></span>
-                <input type="search" placeholder="Search">
-            </div>
+            <h3> Contact Dashboard </h3>
             
             <div class="social-icons">
                 <span class="ti-bell"></span>
@@ -53,7 +51,7 @@
             <section class="recent">
                 <div class="activity-grid">
                     <div class="activity-card">
-                        <h3>Contact</h3>
+                        
                         
                         <div class="table-responsive">
                         <table>

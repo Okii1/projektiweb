@@ -27,7 +27,8 @@
                         <span class="ti-home"></span>
                         <span>  <a href=Dashboard.php class="fa fa-dashboard">Dashboard </a></span>
                         <li> <span><a href="user.php" class="fa fa-user">User</a></span> </li>
-                        <li> <span><a href="product.php" class="fa fa-pencil-square">Product</a></span> </li>       
+                        <li> <span><a href="product.php" class="fa fa-pencil-square">Product</a></span> </li> 
+                        <li> <span><a href="search.php" class="fa fa-search">Search</a></span> </li>      
                         <li> <span><a href="logout.php" class="fa fa-sign-out">LogOut</a> </span> </li>
                     </a>
                 </li>
@@ -41,8 +42,9 @@
         
         <header>
             <div class="search-wrapper">
+            <h3>User Update Form</h3>
                 <span class="ti-search"></span>
-                <input type="search" placeholder="Search">
+                
             </div>
             
             <div class="social-icons">
@@ -96,7 +98,7 @@ include "config.php";
 ?>
          <div class="form-control">
 
-         <h2>User Update Form</h2>
+         
 
           <form action="" method="post">
 

@@ -25,7 +25,7 @@ if(!isset($_SESSION['user_name'])){
         <div>
        
             <ul id="navbar">
-            <h4>welcome <span><?php echo $_SESSION['user_name'] ?></span></h4>
+            <h4>Welcome <span><?php echo $_SESSION['user_name'] ?></span></h4>
                 <li><a class="active" href="index.php">Home</a></li>
                 <li><a href="shop.php">Shop</a></li>
                 <li><a href="blog.php">Blog</a></li>
