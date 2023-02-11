@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <title>User</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="stylee.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -26,11 +25,11 @@
                 <li>
                     <a href="">
                         <span class="ti-home"></span>
-                        <span>  <a href=Dashboard.php class="fa fa-dashboard">Dashboard </a></span>
+                        <span>  <a href=Dashboard.php class="fa fa-dashboard">Dashboard </a></span> 
                         <li> <span><a href="user.php" class="fa fa-user">User</a></span> </li>
-                        <li> <span><a href="product.php" class="fa fa-pencil-square">Product</a></span> </li>  
+                        <li> <span><a href="product.php" class="fa fa-pencil-square">Product</a></span> </li> 
                         <li> <span><a href="searchUsers.php" class="fa fa-search-plus">Search Users</a></span> </li>        
-                        <li> <span><a href="search.php" class="fa fa-search-minus">Search Products</a></span> </li>     
+                        <li> <span><a href="search.php" class="fa fa-search-minus">Search Products</a></span> </li>  
                         <li> <span><a href="logout.php" class="fa fa-sign-out">LogOut</a> </span> </li>
                     </a>
                 </li>
@@ -45,7 +44,7 @@
         <header>
             <div class="search-wrapper">
                 <span class="ti-search"></span>
-                <input type="search" placeholder="Search">
+                <input type="search" id="user_db" placeholder="Search Users...">
             </div>
             
             <div class="social-icons">
@@ -54,51 +53,55 @@
                 <div></div>
             </div>
         </header>
-        
+        <div id="searchresult">
         <main>
             <section class="recent">
                 <div class="activity-grid">
                     <div class="activity-card">
-                     
-                        
+                        <h3>Results</h3>
+                        <a style="float:right;margin-top:15px;color:black;" href="create.php"><b> | Create  </b></a>
                         <div class="table-responsive">
-                        <?php 
-
-include "config.php"; 
-
-if (isset($_GET['id'])) {
-
-    $user_id = $_GET['id'];
-
-    $sql = "DELETE FROM `user_form` WHERE `id`='$user_id'";
-
-     $result = $conn->query($sql);
-
-     if ($result == TRUE) {
-
-        header('location:user.php');
-
-    }else{
-
-        echo "Error:" . $sql . "<br>" . $conn->error;
-
-    }
-
-} 
-
-?>
-
+                        <table>
+                                <thead>
+                                    <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Last Name</th>
+                                    <th>Email</th>
+                                    <th>User Type</th>
+                                    <th>Actions</th>     
+                                        
+                                    </tr>
+                                </thead>
+                        </table>
                         </div>
                     </div>
                 </div>
             </section>
             
         </main>
-        
+        </div>
     </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#user_db").keyup(function(){
+            var input = $(this).val();
+            //alert(input);
+            if(input != ""){
+                $.ajax({
+                    url:"livesearchUsers.php",
+                    method:"POST",
+                    data:{input:input},
+                    success:function(data){
+                    $("#searchresult").html(data);
+                    $("#searchresult").css("display","block");
+                    }
+                });
+            }
+        });
+    });
+    </script>
     
 </body>
-</html>
-
-
-
+</html><?php ?>
