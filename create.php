@@ -81,7 +81,7 @@ include "config.php";
 
     if ($result == TRUE) {
 
-      echo "New record created successfully.";
+        header('location:user.php');
 
     }else{
 

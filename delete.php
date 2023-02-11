@@ -74,7 +74,7 @@ if (isset($_GET['id'])) {
 
      if ($result == TRUE) {
 
-        echo "Record deleted successfully.";
+        header('location:user.php');
 
     }else{
 

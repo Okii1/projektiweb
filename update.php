@@ -83,7 +83,7 @@ include "config.php";
 
         if ($result == TRUE) {
 
-            echo "Record updated successfully.";
+            header('location:user.php');
 
         }else{
 

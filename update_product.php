@@ -80,7 +80,7 @@ include "config.php";
 
         if ($result == TRUE) {
 
-            echo "Record updated successfully.";
+            header('location:product.php');
 
         }else{
 
