@@ -1,3 +1,36 @@
+<?php
+
+class Product {
+  private $conn;
+
+  public function __construct() {
+    include "config.php";
+    $this->conn = $conn;
+  }
+
+  public function create($name, $model, $image, $price) {
+    $sql = "INSERT INTO `card_item`(`name`, `model`, `image`, `price`) VALUES ('$name','$model','$image','$price')";
+
+    $result = $this->conn->query($sql);
+
+    if ($result == TRUE) {
+      header('location:product.php');
+    } else {
+      echo "Error:". $sql . "<br>". $this->conn->error;
+    } 
+  }
+}
+
+if (isset($_POST['submit'])) {
+  $product = new Product();
+  $name = $_POST['name'];
+  $model = $_POST['model'];
+  $image = $_POST['image'];
+  $price = $_POST['price'];
+  $product->create($name, $model, $image, $price);
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,49 +89,11 @@
         <main>
             <section class="recent">
                 <div class="activity-grid">
-                    <div class="activity-card">
-                     
-                        
+                    <div class="activity-card">          
                         <div class="table-responsive">
-                        <?php 
-
-include "config.php";
-
-    if (isset($_POST['submit'])) {
-       
-        $name = $_POST['name'];
-
-        $model = $_POST['model'];
-
-        $image = $_POST['image'];
-
-        $price = $_POST['price'];
-
-        $sql = "INSERT INTO `card_item`(`name`, `model`, `image`, `price`) VALUES ('$name','$model','$image','$price')";
-
-    $result = $conn->query($sql);
-
-    if ($result == TRUE) {
-
-        header('location:product.php');
-
-    }else{
-
-      echo "Error:". $sql . "<br>". $conn->error;
-
-    } 
-
-    $conn->close(); 
-
-  }
-
-?>
          <div class="form-control">
-
          <h2></h2>
-
           <form action="" method="post">
-
          <label >Name: </label><br>
             <input type="text" name="name" required placeholder="Enter the name..."style="padding: 6px 10px;margin: 8px 0;"><br>
             <label>Model: </label><br>
@@ -112,8 +107,5 @@ include "config.php";
             </div>
         </form> 
         </div>
-
     </body>
-
 </html> 
-

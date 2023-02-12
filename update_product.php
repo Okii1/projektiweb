@@ -1,3 +1,65 @@
+<?php 
+
+class Product{
+    private $conn;
+
+    public function __construct() {
+        include "config.php";
+        $this->conn = $conn;
+    }
+
+    public function updateProduct() {
+        if (isset($_POST['update'])) {
+            $product_id = $_GET['id']; 
+            $name = $_POST['name'];
+            $model = $_POST['model'];
+            $image = $_POST['image'];
+            $price = $_POST['price'];
+
+            $sql = "UPDATE `card_item` SET `name`='$name',`model`='$model',`image`='$image',`price`='$price' WHERE `id`='$product_id'"; 
+
+            $result = $this->conn->query($sql); 
+
+            if ($result == TRUE) {
+                header('location:product.php');
+            }else{
+                echo "Error:" . $sql . "<br>" . $this->conn->error;
+            }
+        } 
+    }
+
+    public function getProductData() {
+    
+        if (isset($_GET['id'])) {
+        $product_id = $_GET['id']; 
+        $sql = "SELECT * FROM `card_item` WHERE `id`='$product_id'";
+        $result = $this->conn->query($sql); 
+
+        if ($result->num_rows > 0) {        
+            while ($row = $result->fetch_assoc()) {
+                $name = $row['name'];
+                $model = $row['model'];
+                $image = $row['image'];
+                $price  = $row['price'];
+                $id = $row['id'];   
+            } 
+            return array(
+                'name' => $name,
+                'model' => $model,
+                'image' => $image,
+                'price' => $price,
+                'id' => $id
+            );
+        }
+    }
+}
+}
+
+$product = new Product();
+$productData = $product->getProductData();
+$product->updateProduct();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,105 +118,26 @@
             <section class="recent">
                 <div class="activity-grid">
                     <div class="activity-card">
-                     
-                        
                         <div class="table-responsive">
-                        <?php 
-
-include "config.php";
-
-    if (isset($_POST['update'])) {
-        $product_id = $_GET['id']; 
-
-        $name = $_POST['name'];
-
-        $model = $_POST['model'];
-
-        $image = $_POST['image'];
-
-        $price = $_POST['price'];
-
-        $sql = "UPDATE `card_item` SET `name`='$name',`model`='$model',`image`='$image',`price`='$price' WHERE `id`='$product_id'"; 
-
-        $result = $conn->query($sql); 
-
-        if ($result == TRUE) {
-
-            header('location:product.php');
-
-        }else{
-
-            echo "Error:" . $sql . "<br>" . $conn->error;
-
-        }
-
-    } 
-
-if (isset($_GET['id'])) {
-
-    $product_id = $_GET['id']; 
-
-    $sql = "SELECT * FROM `card_item` WHERE `id`='$product_id'";
-
-    $result = $conn->query($sql); 
-
-    if ($result->num_rows > 0) {        
-
-        while ($row = $result->fetch_assoc()) {
-
-            $name = $row['name'];
-
-            $model = $row['model'];
-
-            $image = $row['image'];
-
-            $price = $row['price'];
-
-            $id = $row['id'];
-
-        } 
-
-    ?>
          <div class="form-control">
-
-        
-
         <form action="" method="post">
 
         <label >Name: </label><br>
        
-        <input type="text" name="name" value="<?php echo $name; ?>"style="padding: 6px 10px;margin: 8px 0;"><br>
+        <input type="text" name="name" value="<?php echo $productData['name']; ?>"style="padding: 6px 10px;margin: 8px 0;"><br>
 
-        <input type="hidden" name="product_id" value="<?php echo $id; ?>"style="padding: 6px 10px;margin: 8px 0;">
+        <input type="hidden" name="product_id" value="<?php echo $productData['id']; ?>"style="padding: 6px 10px;margin: 8px 0;">
         
         <label>Model: </label><br>
-            <input type="text" name="model" value="<?php echo $model; ?>"style="padding: 6px 10px;margin: 8px 0;"><br>
+            <input type="text" name="model" value="<?php echo $productData['model']; ?>"style="padding: 6px 10px;margin: 8px 0;"><br>
             <label>Image: </label><br>
-            <input type="file" id="myFile" name="image" value="<?php echo $image; ?>"style="padding-top:10px;padding-bottom:10px;"><br>
+            <input type="file" id="myFile" name="image" value="<?php echo $productData['image']; ?>"style="padding-top:10px;padding-bottom:10px;"><br>
             <label>Price: </label><br>
-            <input type="text" name="price" value="<?php echo $price; ?>"style="padding: 6px 10px;margin: 8px 0;"><br>
+            <input type="text" name="price" value="<?php echo $productData['price']; ?>"style="padding: 6px 10px;margin: 8px 0;"><br>
             <div style="padding-top:10px;">
             <input type="submit" name="update" value="UPDATE" style="background: #0066A2;color: white;border:none;padding: 10px 22px;margin: 1px .5px;font: bold15px arial,sans-serif;cursor:pointer;">
             </div>
-
-
-
             </form> 
         </div>
-        
-
-    <?php
-
-} else{ 
-
-    header('Location: dashboard.php');
-
-} 
-
-}
-
-?> 
-
 </body>
 </html>
-

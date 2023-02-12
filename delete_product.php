@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +9,6 @@
 </head>
 <body>
 
-    
     <input type="checkbox" id="sidebar-toggle">
     <div class="sidebar">
         <div class="sidebar-header">
@@ -36,8 +34,7 @@
             </ul>
         </div>
     </div>
-    
-    
+     
     <div class="main-content">
         
         <header>
@@ -56,36 +53,37 @@
         <main>
             <section class="recent">
                 <div class="activity-grid">
-                    <div class="activity-card">
-                     
-                        
+                    <div class="activity-card">                        
                         <div class="table-responsive">
-                        <?php 
+<?php 
 
-include "config.php"; 
+class Product {
+    private $conn;
 
-if (isset($_GET['id'])) {
-
-    $product_id = $_GET['id'];
-
-    $sql = "DELETE FROM `card_item` WHERE `id`='$product_id'";
-
-     $result = $conn->query($sql);
-
-     if ($result == TRUE) {
-
-        header('location:product.php');
-
-    }else{
-
-        echo "Error:" . $sql . "<br>" . $conn->error;
-
+    public function __construct() {
+        include "config.php";
+        $this->conn = $conn;
     }
 
-} 
+    public function deleteProduct($product_id) {
+            $sql = "DELETE FROM `card_item` WHERE `id`='$product_id'";
 
+            $result = $this->conn->query($sql);
+
+            if ($result == TRUE) {
+                header('location:product.php');
+            } else {
+                echo "Error:" . $sql . "<br>" . $this->conn->error;
+            }
+        }
+    }
+    $product = new Product();
+
+    if (isset($_GET['id'])) {
+        $product_id = $_GET['id'];
+        $product->deleteProduct($product_id);
+    }
 ?>
-
                         </div>
                     </div>
                 </div>
@@ -97,6 +95,3 @@ if (isset($_GET['id'])) {
     
 </body>
 </html>
-
-
-

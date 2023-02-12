@@ -1,38 +1,52 @@
 <?php
 
-@include 'config.php';
+class User {
+   private $conn;
+   private $error = [];
+   
+   public function __construct() {
+      @include 'config.php';
+      $this->conn = $conn;
+   }
 
-if(isset($_POST['submit'])){
+   public function addUser() {
+      if (isset($_POST['submit'])) {
+         $name = mysqli_real_escape_string($this->conn, $_POST['name']);
+         $lastname = mysqli_real_escape_string($this->conn, $_POST['lastname']);
+         $email = mysqli_real_escape_string($this->conn, $_POST['email']);
+         $pass = md5($_POST['password']);
+         $cpass = md5($_POST['cpassword']);
+         $user_type = $_POST['user_type'];
 
-   $name = mysqli_real_escape_string($conn, $_POST['name']);
-   $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
-   $email = mysqli_real_escape_string($conn, $_POST['email']);
-   $pass = md5($_POST['password']);
-   $cpass = md5($_POST['cpassword']);
-   $user_type = $_POST['user_type'];
+         $select = " SELECT * FROM user_form WHERE email = '$email' && password = '$pass' ";
 
-   $select = " SELECT * FROM user_form WHERE email = '$email' && password = '$pass' ";
+         $result = mysqli_query($this->conn, $select);
 
-   $result = mysqli_query($conn, $select);
+         if (mysqli_num_rows($result) > 0) {
+            $this->error[] = 'User already exists!';
+         } 
 
-   if(mysqli_num_rows($result) > 0){
-
-      $error[] = 'user already exist!';
-
-   }else{
-
-      if($pass != $cpass){
-         $error[] = 'password not matched!';
-      }else{
-         $insert = "INSERT INTO user_form(name, lastname, email, password, user_type) VALUES('$name','$lastname','$email','$pass','$user_type')";
-         mysqli_query($conn, $insert);
-         header('location:login.php');
+      else {
+            if ($pass != $cpass) {
+               $this->error[] = 'Password does not match!';
+            } 
+            else {
+               $insert = "INSERT INTO user_form(name, lastname, email, password, user_type) VALUES('$name','$lastname','$email','$pass','$user_type')";
+               mysqli_query($this->conn, $insert);
+               header('location:login.php');
+            }
+         }
       }
    }
 
-};
+   public function getErrors() {
+      return $this->error;
+   }
+}
 
-
+$user = new User();
+$user->addUser();
+$errors = $user->getErrors();
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +64,7 @@ if(isset($_POST['submit'])){
 <div class="signup">
     <div class="container">
         <div class="header">
-        <h2 style="padding-left : 155px;color:white; font-size: 40px;">SignUp Form</h2>
+        <h2 style="padding-left:155px; color:white; font-size: 40px;">SignUp Form</h2>
         </div>
         <div class="form-control" style="margin-left: 10px;">
 
@@ -85,10 +99,7 @@ if(isset($_POST['submit'])){
 </form>
 </div>
 <p>Already have an account? <a href="login.php">Login here! </a></p> 
-
-
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    
     <script src="script.js"></script>
 </body>
 </html> 

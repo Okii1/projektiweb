@@ -1,3 +1,37 @@
+<?php
+
+class User {
+    private $conn;
+
+    public function __construct() {
+        include "config.php";
+        $this->conn = $conn;
+    }
+
+    public function create($name, $lastname, $email, $password, $user_type) {
+        $sql = "INSERT INTO `user_form`(`name`, `lastname`, `email`, `password`, `user_type`) VALUES ('$name','$lastname','$email','$password','$user_type')";
+       
+        $result = $this->conn->query($sql);
+
+        if ($result == TRUE) {
+            header('location:user.php');
+        } else {
+            echo "Error:" . $sql . "<br>" . $this->conn->error;
+        }
+    }
+}
+
+if (isset($_POST['submit'])) {
+    $user = new User();
+    $name = $_POST['name'];
+    $lastname = $_POST['lastname'];
+    $email = $_POST['email'];
+    $password = md5($_POST['password']);
+    $user_type = $_POST['user_type'];
+    $user->create($name, $lastname, $email, $password, $user_type);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,53 +90,12 @@
             <section class="recent">
                 <div class="activity-grid">
                     <div class="activity-card">
-                     
-                        
                         <div class="table-responsive">
-                        <?php 
-
-include "config.php";
-
-    if (isset($_POST['submit'])) {
-       
-        $name = $_POST['name'];
-
-        $lastname = $_POST['lastname'];
-
-        $email = $_POST['email'];
-
-        $password = md5($_POST['password']);
-
-        $user_type = $_POST['user_type']; 
-
-        $sql = "INSERT INTO `user_form`(`name`, `lastname`, `email`, `password`, `user_type`) VALUES ('$name','$lastname','$email','$password','$user_type')";
-
-    $result = $conn->query($sql);
-
-    if ($result == TRUE) {
-
-        header('location:user.php');
-
-    }else{
-
-      echo "Error:". $sql . "<br>". $conn->error;
-
-    } 
-
-    $conn->close(); 
-
-  }
-
-?>
          <div class="form-control">
-
-         
-
           <form action="" method="post">
-
          <label >Name: </label><br>
             <input type="text" name="name" required placeholder="Enter the name..."style="padding: 6px 10px;margin: 8px 0;"><br>
-            <label>Lastname: </label><br>
+            <label>Last Name: </label><br>
             <input type="text" name="lastname" required placeholder="Enter the last name..."style="padding: 6px 10px;margin: 8px 0;"><br>
             <label>Email: </label><br>
             <input type="email" name="email" required placeholder="Enter the email..."style="padding: 6px 10px;margin: 8px 0;"><br>
@@ -117,13 +110,7 @@ include "config.php";
             <div style="padding-top:10px;">
             <input type="submit" name="submit" value="SUBMIT" style="background: #0066A2;color: white;border:none;padding: 10px 22px;margin: 1px .5px;font: bold15px arial,sans-serif;cursor:pointer;">
             </div>
-        
-
         </form> 
         </div>
-
     </body>
-
 </html> 
-
-

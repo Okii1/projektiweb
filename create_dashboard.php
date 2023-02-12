@@ -1,3 +1,36 @@
+<?php 
+
+class ContactForm {
+    private $conn;
+
+    public function __construct() {
+        include "config.php";
+        $this->conn = $conn;
+    }
+
+    public function create($name, $subject, $email, $message) {
+            $sql = "INSERT INTO `contact_form`(`name`, `subject`, `email`, `message`) VALUES ('$name','$subject','$email','$message')";
+
+            $result = $this->conn->query($sql);
+
+            if ($result == TRUE) {
+                header('location:Dashboard.php');
+            } else {
+                echo "Error:" . $sql . "<br>" . $this->conn->error;
+            } 
+        }
+    }
+
+    if (isset($_POST['submit'])) {
+        $contactForm = new ContactForm();
+        $name = $_POST['name'];
+        $subject = $_POST['subject'];
+        $email = $_POST['email'];
+        $message = $_POST['message'];
+        $contactForm->create($name, $subject, $email, $message);
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,45 +93,9 @@
                      
                         
                         <div class="table-responsive">
-                        <?php 
-
-include "config.php";
-
-    if (isset($_POST['submit'])) {
-       
-        $name = $_POST['name'];
-
-        $subject = $_POST['subject'];
-
-        $email = $_POST['email'];
-
-        $message = $_POST['message'];
-
-        $sql = "INSERT INTO `contact_form`(`name`, `subject`, `email`, `message`) VALUES ('$name','$subject','$email','$message')";
-
-    $result = $conn->query($sql);
-
-    if ($result == TRUE) {
-
-        header('location:Dashboard.php');
-
-    }else{
-
-      echo "Error:". $sql . "<br>". $conn->error;
-
-    } 
-
-    $conn->close(); 
-
-  }
-
-?>
          <div class="form-control">
-
          <h2></h2>
-
           <form action="" method="post">
-
             <label >Name: </label><br>
             <input type="text" name="name" required placeholder="Enter the name..."style="padding: 6px 10px;margin: 8px 0;"><br>
             <label>Email: </label><br>
@@ -110,13 +107,7 @@ include "config.php";
             <div style="padding-top:10px;">
             <input type="submit" name="submit" value="SUBMIT" style="background: #0066A2;color: white;border:none;padding: 10px 22px;margin: 1px .5px;font: bold15px arial,sans-serif;cursor:pointer;">
             </div>
-
-        
-
         </form> 
         </div>
-
     </body>
-
 </html> 
-

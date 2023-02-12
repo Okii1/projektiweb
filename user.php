@@ -57,7 +57,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Name</th>
-                                        <th>Lastname</th>
+                                        <th>Last Name</th>
                                         <th>Email</th>
                                         <th>User_type</th>
                                         <th>Actions</th>

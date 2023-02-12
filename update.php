@@ -1,3 +1,81 @@
+<?php 
+
+class User {
+    private $conn;
+
+    public function __construct() {
+        include "config.php";
+        $this->conn = $conn;
+    }
+
+    public function updateUser() {
+        if (isset($_POST['update'])) {
+            $user_id = $_GET['id']; 
+
+            $name = $_POST['name'];
+
+            $lastname = $_POST['lastname'];
+
+            $email = $_POST['email'];
+
+            $password = md5($_POST['password']);
+
+            $user_type = $_POST['user_type']; 
+
+            $sql = "UPDATE `user_form` SET `name`='$name',`lastname`='$lastname',`email`='$email',`password`='$password',`user_type`='$user_type' WHERE `id`='$user_id'"; 
+
+            $result = $this->conn->query($sql); 
+
+            if ($result == TRUE) {
+
+                header('location:user.php');
+
+            } else {
+
+                echo "Error:" . $sql . "<br>" . $this->conn->error;
+
+            }
+        }
+    }
+
+    public function getUserData() {
+        if (isset($_GET['id'])) {
+
+            $user_id = $_GET['id']; 
+
+            $sql = "SELECT * FROM `user_form` WHERE `id`='$user_id'";
+
+            $result = $this->conn->query($sql); 
+
+            if ($result->num_rows > 0) {        
+
+                while ($row = $result->fetch_assoc()) {
+                    $name = $row['name'];
+                    $lastname = $row['lastname'];
+                    $email = $row['email'];
+                    $password  = $row['password'];
+                    $user_type = $row['user_type'];
+                    $id = $row['id'];
+                } 
+
+            return array(
+                'name' => $name,
+                'lastname' => $lastname,
+                'email' => $email,
+                'password' => $password,
+                'user_type' => $user_type,
+                'id' => $id
+            );
+            }
+        }
+    }
+}
+
+$user = new User();
+$userData = $user->getUserData();
+$user->updateUser();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,130 +134,32 @@
             <section class="recent">
                 <div class="activity-grid">
                     <div class="activity-card">
-                     
-                        
                         <div class="table-responsive">
-                        <?php 
-
-include "config.php";
-
-    if (isset($_POST['update'])) {
-        $user_id = $_GET['id']; 
-
-        $name = $_POST['name'];
-
-        $lastname = $_POST['lastname'];
-
-        $email = $_POST['email'];
-
-        $password = md5($_POST['password']);
-
-
-        $user_type = $_POST['user_type']; 
-
-        $sql = "UPDATE `user_form` SET `name`='$name',`lastname`='$lastname',`email`='$email',`password`='$password',`user_type`='$user_type' WHERE `id`='$user_id'"; 
-
-        $result = $conn->query($sql); 
-
-        if ($result == TRUE) {
-
-            header('location:user.php');
-
-        }else{
-
-            echo "Error:" . $sql . "<br>" . $conn->error;
-
-        }
-
-    } 
-
-if (isset($_GET['id'])) {
-
-    $user_id = $_GET['id']; 
-
-    $sql = "SELECT * FROM `user_form` WHERE `id`='$user_id'";
-
-    $result = $conn->query($sql); 
-
-    if ($result->num_rows > 0) {        
-
-        while ($row = $result->fetch_assoc()) {
-
-            $name = $row['name'];
-
-            $lastname = $row['lastname'];
-
-            $email = $row['email'];
-
-            $password  = $row['password'];
-
-            $user_type = $row['user_type'];
-
-            $id = $row['id'];
-
-        } 
-
-    ?>
          <div class="form-control">
-
-         
-
          <form action="" method="post">
-
-
            <label> First name:</label><br>
-
-            <input type="text" name="name" value="<?php echo $name; ?>" style="padding: 6px 10px;margin: 8px 0;">
-
-            <input type="hidden" name="user_id" value="<?php echo $id; ?>"style="padding: 6px 10px;margin: 8px 0;">
-
+            <input type="text" name="name" value="<?php echo $userData['name']; ?>" style="padding: 6px 10px;margin: 8px 0;">
+            <input type="hidden" name="user_id" value="<?php echo $userData['id']; ?>"style="padding: 6px 10px;margin: 8px 0;">
             <br>
-
             <label>Last name:</label><br>
-
-            <input type="text" name="lastname" value="<?php echo $lastname; ?>"style="padding: 6px 10px;margin: 8px 0;">
-
+            <input type="text" name="lastname" value="<?php echo $userData['lastname']; ?>"style="padding: 6px 10px;margin: 8px 0;">
             <br>
-
             <label>Email: </label><br>
-
-            <input type="email" name="email" value="<?php echo $email; ?>"style="padding: 6px 10px;margin: 8px 0;">
-
+            <input type="email" name="email" value="<?php echo $userData['email']; ?>"style="padding: 6px 10px;margin: 8px 0;">
             <br>
-
             <label>Password:</label><br>
-
-            <input type="password" name="password" value="<?php echo $password; ?>"style="padding: 6px 10px;margin: 8px 0;">
-
+            <input type="password" name="password" value="<?php echo $userData['password']; ?>"style="padding: 6px 10px;margin: 8px 0;">
             <br>
            <label> User type:</label><br>
            <div style="padding-top:10px;padding-bottom:10px;">
             <select name="user_type"><br>
-            <option value="<?php echo $user_type; ?>"><?php echo $user_type; ?></option>
+            <option value="<?php echo $userData['user_type']; ?>"><?php echo $userData['user_type']; ?></option>
             </select><br>
            </div>
             <div style="padding-top:10px;">
             <input type="submit" name="update" value="UPDATE" style="background: #0066A2;color: white;border:none;padding: 10px 22px;margin: 1px .5px;font: bold15px arial,sans-serif;cursor:pointer;">
             </div>
-
          </form> 
-        </div>
-        
-
-    <?php
-
-    } else{ 
-
-        header('Location: dashboard.php');
-
-    } 
-
-}
-
-?> 
-    
+        </div>   
 </body>
 </html>
-
-
-

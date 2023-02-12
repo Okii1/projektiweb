@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +9,6 @@
 </head>
 <body>
 
-    
     <input type="checkbox" id="sidebar-toggle">
     <div class="sidebar">
         <div class="sidebar-header">
@@ -37,7 +35,6 @@
         </div>
     </div>
     
-    
     <div class="main-content">
         
         <header>
@@ -57,35 +54,35 @@
             <section class="recent">
                 <div class="activity-grid">
                     <div class="activity-card">
-                     
-                        
                         <div class="table-responsive">
-                        <?php 
+<?php
+class User {
+    private $conn;
 
-include "config.php"; 
-
-if (isset($_GET['id'])) {
-
-    $user_id = $_GET['id'];
-
-    $sql = "DELETE FROM `user_form` WHERE `id`='$user_id'";
-
-     $result = $conn->query($sql);
-
-     if ($result == TRUE) {
-
-        header('location:user.php');
-
-    }else{
-
-        echo "Error:" . $sql . "<br>" . $conn->error;
-
+    public function __construct() {
+        include "config.php"; 
+        $this->conn = $conn;
     }
 
-} 
+    public function deleteUser($user_id) {
+        $sql = "DELETE FROM `user_form` WHERE `id`='$user_id'";
 
+        $result = $this->conn->query($sql);
+
+        if ($result == TRUE) {
+            header('location:user.php');
+        } else {
+            echo "Error: " . $sql . "<br>" . $this->conn->error;
+        }
+    }
+}
+$user = new User();
+
+if (isset($_GET['id'])) {
+    $user_id = $_GET['id'];
+    $user->deleteUser($user_id);
+}
 ?>
-
                         </div>
                     </div>
                 </div>
@@ -97,6 +94,3 @@ if (isset($_GET['id'])) {
     
 </body>
 </html>
-
-
-

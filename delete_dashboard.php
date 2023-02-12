@@ -9,7 +9,6 @@
 </head>
 <body>
 
-    
     <input type="checkbox" id="sidebar-toggle">
     <div class="sidebar">
         <div class="sidebar-header">
@@ -36,7 +35,6 @@
         </div>
     </div>
     
-    
     <div class="main-content">
         
         <header>
@@ -56,46 +54,40 @@
             <section class="recent">
                 <div class="activity-grid">
                     <div class="activity-card">
-                     
-                        
                         <div class="table-responsive">
-                        <?php 
+<?php
+class Dashboard {
+    private $conn;
 
-include "config.php"; 
-
-if (isset($_GET['id'])) {
-
-    $dashboard_id = $_GET['id'];
-
-    $sql = "DELETE FROM `contact_form` WHERE `id`='$dashboard_id'";
-
-     $result = $conn->query($sql);
-
-     if ($result == TRUE) {
-
-        header('location:Dashboard.php');
-
-    }else{
-
-        echo "Error:" . $sql . "<br>" . $conn->error;
-
+    public function __construct() {
+        include "config.php"; 
+        $this->conn = $conn;
     }
 
-} 
+    public function deleteDashboard($dashboard_id) {
+        $sql = "DELETE FROM `contact_form` WHERE `id`='$dashboard_id'";
 
+        $result = $this->conn->query($sql);
+
+        if ($result == TRUE) {
+            header('location:Dashboard.php');
+        } else {
+            echo "Error: " . $sql . "<br>" . $this->conn->error;
+        }
+    }
+}
+$dashboard = new Dashboard();
+
+if (isset($_GET['id'])) {
+    $dashboard_id = $_GET['id'];
+    $dashboard->deleteDashboard($dashboard_id);
+}
 ?>
-
                         </div>
                     </div>
                 </div>
             </section>
-            
         </main>
-        
-    </div>
-    
+    </div> 
 </body>
 </html>
-
-
-
